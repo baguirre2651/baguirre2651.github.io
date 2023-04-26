@@ -1,0 +1,263 @@
+body {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  background-color: #448cf8;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+@media screen and (min-width: 1024px) {
+  body {
+    max-width: 1024px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  body {
+    max-width: 1280px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  body {
+    max-width: 1440px;
+  }
+}
+
+  /* Welcome To My Website */
+
+  header {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    left: 80.46px;
+    top: 100px;
+    font-family: 'Georgia';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    color: #FFFFFF;
+  }
+
+  .bottom-header {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    left: 80.46px;
+    top: 130px;
+    font-family: 'Georgia';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.5;
+  }
+
+  .click-header{
+    position: absolute;
+    z-index: 9999;
+    left: 48%;
+    top:55%;
+    font-family: 'Georgia';
+    font-style: bold;
+    font-weight: 700;
+    font-size: 7px;
+    line-height: 1.5;
+    color: white;
+  }
+
+
+  /* grass */ 
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 6em;
+  }
+
+
+  .rectangle {
+    width: 100%;
+    height: 100px;
+    position: fixed;
+    bottom: -50;
+    background-color: #7faa22e0;
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+  }
+  
+  .container {
+    background-color: #ec7525;
+    width: 200%;
+    height: 300px;
+    position: fixed;
+    bottom: 12%;
+  }
+
+  .triangle {
+  width: 470vw;
+  height: 170vh;
+  bottom:11%;
+  position: fixed;
+  left: -3vw;
+  background-color: hsl(39, 95%, 78%);
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+  clip-path: polygon(0 100%, 100% 0, 105% 100%);
+  }
+
+
+
+
+/* navigation bar top right*/
+body {
+  margin: 0;
+  padding:0;
+  }
+  
+  /* navigation bar top right*/
+  #q1-navbar {
+    font-family: "Arial";
+    background: #364156;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    background-color: rgba(32, 40, 59, 0.979);
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+
+  }
+  
+
+  .q1-navitem:hover {
+  background-color: #2856aa;
+  }
+  .q1-navitem {
+
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 5px;
+    align-self: flex;
+    margin: 0 10px 0 0;
+    text-decoration: none;
+    margin-left: 5px;
+  }
+
+  .q1-navitem {
+    color: white;
+  }
+
+  
+  .q1-navitem:last-child {
+    margin-right: 30px;
+  }
+  
+  
+  .q1-section {
+    margin: 0px;
+    padding: 20px;
+  }
+  
+  .q1-section h2 {
+    margin-top: 0;
+  }
+  
+  .q1-section p {
+    margin-top: 10px;
+    text-align: justify;
+  }
+  
+  /* house */ 
+  .house {
+    position: fixed;
+    z-index: 9999;
+    top: 49.5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px; /* adjust as needed */
+    height: auto;
+    transition: all 1s ease-out; /* add transition property */
+    animation: blink 3s infinite; /* add the blink animation */
+    display: absolute;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  
+  @keyframes blink {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  .house {
+    /* ... */
+    animation: blink 15s infinite;
+    /* ... */
+  }
+
+
+  #cloud-image {
+    position: absolute;
+    top: 10%;
+    right: 30px;
+    transform: translateY(-50%);
+    animation: sway-right 7s ease-in-out infinite alternate;
+    width: 20%;
+  }
+ 
+  @keyframes sway-right {
+    0% {
+      transform: translateX(0) scaleY(1);
+    }
+    50% {
+      transform: translateX(10px) scaleY(0.95);
+    }
+    100% {
+      transform: translateX(0) scaleY(1);
+    }
+  }
+  
+
+
+  #birds-image {
+    position: absolute;
+    top: 12%;
+    left: 10px;
+    transform: translateY(-50%);
+    width: 10%;
+  }
+
+ 
+
+  
+  .house:hover {
+    left: 50%;
+    animation-play-state: paused;
+    transform: translate(-10px, 130px) scale(15); /* add hover effect  */
+    animation: none; /* remove animation on hover */
+  }
+  
+ 
+
+   .moon {
+    position: absolute;
+    z-index: 9999;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px; 
+    height: auto;
+  }
+  
+
+  /* flower */
