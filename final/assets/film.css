@@ -5,7 +5,7 @@
     justify-content: space-evenly;
   }
   
-  #videos video {
+  #videos img {
     border: 10px solid rgba(32, 40, 59, 0.979);
     width: 300px;
     height: 199px;
