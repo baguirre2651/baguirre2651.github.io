@@ -10,6 +10,9 @@ contactIcons.forEach(icon => {
 });
 
 
+// Add event listener to clock ima
+
+
 
 // Set the closeAllLightboxes function to run when #lightbox-overlay is clicked on.
 document.getElementById('lightbox-overlay').addEventListener('click', closeAllLightboxes);

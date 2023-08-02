@@ -1,109 +1,30 @@
+@keyframes sway-right {
+  0% {
+    transform: scaleY(1);
+    margin-left: 0;
+  }
+  50% {
+    transform: scaleY(0.95);
+    margin-left: 10px;
+  }
+  100% {
+    transform: scaleY(1);
+    margin-left: 0;
+  }
+}
 
+@keyframes sway-left {
+  0% {
+    transform: scaleY(1);
+    margin-left: 0;
+  }
+  50% {
+    transform: scaleY(0.95);
+    margin-left: -10px;
+  }
+  100% {
+    transform: scaleY(1);
+    margin-left: 0;
+  }
+}
 
-#cows-image {
-    position: fixed;
-    top: 51%;
-    right: 590px;
-    transform: translateY(-50%);
-    transform: scaleX(-1);
-    width: 18px;
-    z-index: 999;
-  }
-
-  #cow2-image {
-    position: fixed;
-    top: 51%;
-    right: 645px;
-    transform: translateY(-50%);
-    width: 18px;
-    z-index: 999;
-  }
-
-  #cow3-image {
-    position: fixed;
-    top: 50%;
-    right:  400px;
-    transform: translateY(-50%);
-    transform: scaleX(-1);
-    width: 18px;
-    z-index: 999;
-  }
-
-  #cow4-image {
-    position: fixed;
-    top: 49.5%;
-    right: 850px;
-    transform: translateY(-50%);
-    width: 18px;
-    z-index: 999;
-    transform: scaleX(-1);
-  }
-
- 
- 
- 
-
-  #cow8-image {
-    position: fixed;
-    top: 52%;
-    right: 900px;
-    transform: translateY(-50%);
-    width: 18px;
-    z-index: 999;
-  }
-
-
-  #flower-image {
-    position: fixed;
-    bottom: -10.5%;
-    right: 310px;
-    transform: translateY(-50%);
-    width: 46%;
-    z-index: 2;
-    animation: sway-right 8s ease-in-out infinite alternate;
-  }
-  
-  #flower2-image {
-    position: fixed;
-    bottom: -10.7%;
-    left:  1120px;
-    transform: translateY(-50%) scaleX(-1);
-    width: 48.8%;
-    z-index: 2;
-    animation: sway-left 8s ease-in-out infinite alternate;
-  }
-  
-  #flower3-image {
-    position: fixed;
-    bottom: -10.5%;
-    left: -12px;
-    transform: translateY(-50%) scaleX(-1);
-    width: 46%;
-    z-index: 2;
-    animation: sway-right 8s ease-in-out infinite alternate;
-  }
-  
-  @keyframes sway-right {
-    0% {
-      transform: translateX(0) scaleY(1);
-    }
-    50% {
-      transform: translateX(10px) scaleY(0.95);
-    }
-    100% {
-      transform: translateX(0) scaleY(1);
-    }
-  }
-  
-  @keyframes sway-left {
-    0% {
-      transform: translateX(0) scaleY(1);
-    }
-    50% {
-      transform: translateX(20px) scaleY(0.95);
-    }
-     100% {
-      transform: translateX(0) scaleY(1);
-    }
-  }
-  

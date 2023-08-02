@@ -1,109 +1,111 @@
 body {
   width: 100%;
-  max-width: 100%;
+  height: 100%;
   margin: 0 auto;
   padding: 0;
-  background-color: #448cf8;
-  overflow-y: scroll;
-  overflow-x: hidden;
+  background-color: #ED6511;
+  position: absolute;
+  overflow: hidden; /* Prevent scrolling */
 }
 
-@media screen and (min-width: 1024px) {
-  body {
-    max-width: 1024px;
-  }
-}
-
-@media screen and (min-width: 1280px) {
-  body {
-    max-width: 1280px;
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  body {
-    max-width: 1440px;
-  }
-}
 
   /* Welcome To My Website */
 
   header {
     position: absolute;
-    width: 500px;
-    height: 500px;
-    left: 80.46px;
-    top: 100px;
+    right: 150px; /* Adjust right property */
+    top: 36%; /* Adjust top property */
+    transform: translateY(-50%); /* Vertically center the header */
     font-family: 'Georgia';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 15px;
+    font-size: 30px;
     color: #FFFFFF;
-  }
-
-  .bottom-header {
-    position: absolute;
-    width: 500px;
-    height: 500px;
-    left: 80.46px;
-    top: 130px;
-    font-family: 'Georgia';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 1.5;
-  }
-
-  .click-header{
-    position: absolute;
+    text-align: right;
     z-index: 9999;
-    left: 48%;
-    top:55%;
-    font-family: 'Georgia';
-    font-style: bold;
-    font-weight: 700;
-    font-size: 7px;
-    line-height: 1.5;
-    color: white;
+  }
+  
+  h1 {
+    margin: 0;
+    padding: 0;
+  }
+  h2 {
+    margin: 0;
+    padding: 10;
+  }
+  
+  h1 {
+    font-size: 35px;
+    font-weight: bold;
+  }
+  
+  h2 {
+    font-size: 35px;
+  }
+  
+
+  .center-text {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-family: "Ariel", Times, serif;
+    font-size: 12px;
+    color: wheat ;
+    z-index: 100000;
   }
 
 
   /* grass */ 
-footer {
+/* footer {
     position: absolute;
     bottom: 0;
     width: 100%;
     height: 6em;
-  }
+  } */
 
 
-  .rectangle {
-    width: 100%;
-    height: 100px;
-    position: fixed;
-    bottom: -50;
-    background-color: #7faa22e0;
-/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
-  }
+  /* .rectangle {
+      width: 100%;
+      height: 130px;
+      position: absolute;
+      bottom: -50;
+      background-color: #E9D846;
+      border-radius: 60% 50% 0 0;
+      z-index: 999; 
+    } */
   
   .container {
-    background-color: #ec7525;
-    width: 200%;
-    height: 300px;
-    position: fixed;
-    bottom: 12%;
+    background-color: #005ADC;
+    width: 100%;
+    height: 50%;
+    position: absolute;
+    top: 0%;
+    animation: color-bounce 60s infinite alternate;
+  }
+  @keyframes color-bounce {
+    0% {
+      background-color: #005ADC;
+    }
+    25% {
+      background-color: #db967b8a; /* Change to your desired second color */
+    }
+
+    100% {
+      background-color: black;
+    }
   }
 
-  .triangle {
+    /* .triangle {
   width: 470vw;
   height: 170vh;
   bottom:11%;
   position: fixed;
   left: -3vw;
   background-color: hsl(39, 95%, 78%);
-  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
-  clip-path: polygon(0 100%, 100% 0, 105% 100%);
-  }
+  clip-path: polygon(0 100%, 100% 0, 105% 100%); }
+
+ 
+  */
 
 
 
@@ -127,7 +129,7 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 999;
+    z-index: 99999;
 
   }
   
@@ -173,11 +175,11 @@ body {
   /* house */ 
   .house {
     position: fixed;
-    z-index: 9999;
-    top: 49.5%;
+    z-index: 99999999;
+    top: 46%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 30px; /* adjust as needed */
+    width: 80px; /* adjust as needed */
     height: auto;
     transition: all 1s ease-out; /* add transition property */
     animation: blink 3s infinite; /* add the blink animation */
@@ -186,6 +188,16 @@ body {
     align-items: center;
   }
   
+   /* .rectangle {
+    position: fixed;
+    background-color: #262A56;
+    z-index: 99998; 
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%; 
+    height: 5%; 
+  }  */
   
   @keyframes blink {
     0% {
@@ -205,22 +217,29 @@ body {
     /* ... */
   }
 
+  .clock {
+    /* ... */
+    animation: blink 15s infinite;
+    /* ... */
+  }
+
 
   #cloud-image {
     position: absolute;
-    top: 10%;
-    right: 30px;
+    top: 0%;
+    right: 100px; /* Adjust the value to determine how far the animation sways */
     transform: translateY(-50%);
-    animation: sway-right 7s ease-in-out infinite alternate;
+    animation: sway-right 6s ease-in-out infinite;
     width: 20%;
+    z-index: 9999;
   }
- 
+  
   @keyframes sway-right {
     0% {
       transform: translateX(0) scaleY(1);
     }
     50% {
-      transform: translateX(10px) scaleY(0.95);
+      transform: translateX(600px) scaleY(0.95); /* Adjust the value to determine the distance swayed */
     }
     100% {
       transform: translateX(0) scaleY(1);
@@ -229,22 +248,63 @@ body {
   
 
 
-  #birds-image {
+  #clock-image {
     position: absolute;
-    top: 12%;
-    left: 10px;
+    top: 15%;
+    left: 30px;
     transform: translateY(-50%);
-    width: 10%;
+    width: 8%;
+    z-index: 9999;
+    transition: all 1s ease-out; /* add transition property */
+    animation: blink 5s infinite;
+    cursor: pointer;
   }
+
+
+  #shapes-image{
+    width: 100%;
+    height: 80%;
+    position: absolute;
+    bottom: 0%;
+    z-index: 9999;
+    
+  }
+
+  #ellipse-image {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 30%;
+    right: 100%;
+    transform: translate(-50%, -50%) rotate(-10deg);
+    z-index: 99999990;
+  }
+
+  /* #ellipse2-image {
+    width: 0%;
+    height: 20%;
+    position: absolute;
+    bottom: 0%;
+    left: 100%;
+    transform: translate(-50%, -50%);
+    z-index: 99999;
+  } 
 
  
 
-  
+   */
   .house:hover {
     left: 50%;
+    
     animation-play-state: paused;
-    transform: translate(-10px, 130px) scale(15); /* add hover effect  */
+    transform: translate(-10px, 130px) scale(7); /* add hover effect  */
     animation: none; /* remove animation on hover */
+  }
+
+  .mumu {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
   }
   
  
@@ -258,6 +318,109 @@ body {
     width: 120px; 
     height: auto;
   }
-  
 
-  /* flower */
+
+  
+#flowers-image {
+  width: 50%;
+  height: 60%;
+  position: absolute;
+  top: 73.5%;
+  left: 24%;
+  transform: translate(-50%, -50%);
+  z-index: 1000000;
+  animation: swayToLefty 16s infinite;
+}
+
+#flowers-image2 {
+  width: 59%;
+  height: 50%;
+  position: absolute;
+  top: 76%;
+  left: 74%;
+  transform: translate(-50%, -50%);
+  z-index: 1000000;
+  animation: swayToRighty 16s infinite;
+}
+  #walk {
+    width: 27%;
+    height: 31.1%;
+    position: absolute;
+    top: 65.5%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    z-index: 1000000;
+  }
+
+
+
+  #figure{
+    width: 5%;
+    height: 6%;
+    position: absolute;
+    top: 78%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    z-index: 10000000;
+    animation: moveToLeft 700s infinite, blink 100s steps(20) infinite;
+  }
+
+
+@keyframes moveToLeft {
+  0% {
+    left: 54%;
+  }
+  100% {
+    left: 10%; /* Adjust this value to control how far your figure moves to the left */
+  }
+}
+
+@keyframes blink {
+  0%, 100% {
+    visibility: visible;
+  }
+  50% {
+    visibility: hidden;
+  }
+}
+
+  #figure2{
+    width: 5%;
+    height: 8%;
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10000000;
+    animation: moveUp 90s infinite;
+  }
+  
+  @keyframes moveUp{
+    0% {
+      top: 76%;
+    }
+    100% {
+      top: 50%; /* Adjust this value to control how far your figure moves to the left */
+    }
+  }
+
+
+  #image{
+    width: 60%;
+    height: 20%;
+    position: absolute;
+    top: 65%;
+    left: 49%;
+    z-index: 10001;
+
+  }
+
+  #image2{
+    width: 60%;
+    height: 20%;
+    position: absolute;
+    top: 65%;
+    left: -10%;
+    z-index: 10001;
+
+  }
