@@ -1,62 +1,86 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>My Website</title>
-    <link rel="stylesheet" type="text/css" href="assets/styles.css">
-    <link rel="stylesheet" type="text/css" href="assets/script.js">
-    <link rel="stylesheet" type="text/css" href="assets/cow.css">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
-  </head>
-  <body>
-    <header>
-      <h1>Welcome To My</h1>
-    </header>
-    <header class="bottom-header">
-      <h2>Website</h2>
-    </header>
-    
-    <header class="click-header">
-      <h3>Hover/Click </h3>
-    </header>
-    
-    <nav>
-      <div id="q1-navbar">
-        <a href="index.html" class="q1-navitem">Home</a>
-        <a href="home.html" class="q1-navitem">About</a>
-        <a href="home.html" class="q1-navitem">Work</a>
-        <a href="home.html" class="q1-navitem">Contact</a> 
-      </div>
-      <div class="q1-section"></div>
-      <div class="q1-section"></div>
-      <div class="q1-section"></div>
-      <div class="q1-section"></div>
-    </nav>
-    
-    <main>
-      <img class="house" src="assets/images/house.png" alt="house">
-      <a href="home.html"><img class="house" src="assets/images/house.png" alt="house"></a>
-      <img class="moon" src="assets/images/moon.png" alt="moon">
-      <img src="assets/images/cloud.png" alt="Cloud" id="cloud-image">
-      <img src="assets/images/birds.png" alt="birds" id="birds-image">
-      <img src="assets/images/cows.png" alt="cows" id="cows-image">
-      <img src="assets/images/cows.png" alt="cows" id="cow2-image">
-      <img src="assets/images/cows.png" alt="cows" id="cow3-image">
-      <img src="assets/images/cows.png" alt="cows" id="cow4-image">
-      <img src="assets/images/cows.png" alt="cows" id="cow8-image">
-      <img src="assets/images/flowers.png" alt="flowers" id="flower-image">
-      <img src="assets/images/flowers.png" alt="flowers" id="flower2-image">
-      <img src="assets/images/flowers.png" alt="flowers" id="flower3-image">
-      <!-- rest of your website content -->
-    </main>
-    
-    <footer>  
-      <div class="rectangle"></div>
-    </footer>
-    
-    <div class="container"></div>
-    
-    <div class="triangle"></div>
-    
-    <script src="assets/script.js"></script>
-    
+<head>
+  <meta charset="UTF-8">
+  <title>My Website</title>
+  <link rel="stylesheet" type="text/css" href="assets/styles.css">
+  <link rel="stylesheet" type="text/css" href="assets/cow.css">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
+  <style>
+    #clock-image {
+      position: absolute;
+      top: 15%;
+      left: 30px;
+      transform: translateY(-50%);
+      width: 8%;
+      z-index: 9999;
+      transition: all 1s ease-out;
+      animation: blink 5s infinite;
+      cursor: pointer; /* Add cursor style to indicate it is clickable */
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome To My</h1>
+    <h2>Website</h2>
+  </header>
+  <div class="center-text">
+    <p>Hover/Click</p>
+  </div>
+
+  <audio id = "song">
+    <source src= assets/music/flute.mp3>
+  </audio>
+  <script>
+    window.addEventListener('click', () => {
+      const audioElement = document.getElementById("song");
+  
+      if (audioElement.paused) {
+        audioElement.play();
+      } else {
+        audioElement.pause();
+      }
+    });
+  </script>
+  <iframe class="mumu" width="500" height="315" src="https://www.youtube.com/watch?v=rp4vQjrBKBw&ab_channel=AphexTwin-Topic" frameborder="0" allowfullscreen></iframe>
+
+
+  <nav>
+    <div id="q1-navbar">
+      <a href="index.html" class="q1-navitem">Home</a>
+      <a href="home.html" class="q1-navitem">About</a>
+      <a href="home.html" class="q1-navitem">Work</a>
+      <a href="home.html" class="q1-navitem">Contact</a> 
+    </div>
+  </nav>
+
+  <main>
+    <img class="house" src="assets/images/house.png" alt="house">
+    <a href="home.html"><img class="house" src="assets/images/house.png" alt="house"></a>
+    <img class="moon" src="assets/images/moon.png" alt="moon">
+    <img src="assets/images/cloud.png" alt="Cloud" id="cloud-image">
+    <a href="vr.html"><img src="assets/images/cock 1.png" alt="clock" id="clock-image"></a>
+    <img src="assets/images/p3.png" alt="Group 3 Image" id="shapes-image">
+    <img src="assets/images/flowers.png" alt="Group 3 Image" id="flowers-image">
+    <img src="assets/images/flowers.png" alt="Group 3 Image" id="flowers-image2">
+    <img src="assets/images/walk 1.png" alt="Group 3 Image" id="walk">
+    <img src="assets/images/figure.png" alt="Group 3 Image" id="figure">
+    <img src="assets/images/image.png" alt="Group 3 Image" id="image">
+    <img src="assets/images/image.png" alt="Group 3 Image" id="image2">
+    <!-- <img src="assets/images/figure 2.png" alt="Group 3 Image" id="figure2"> -->
+  </main>
+
+  <footer>  
+    <div class="rectangle"></div>
+  </footer>
+
+  <div class="container"></div>
+
+  <div class="triangle"></div>
+
+  <script src="assets/script.js"></script>
+
+
+</body>
+</html>
