@@ -182,7 +182,7 @@ body {
     width: 80px; /* adjust as needed */
     height: auto;
     transition: all 1s ease-out; /* add transition property */
-    animation: blink 3s infinite; /* add the blink animation */
+    animation: blinks 3s infinite; /* add the blink animation */
     display: absolute;
     justify-content: center;
     align-items: center;
@@ -199,7 +199,7 @@ body {
     height: 5%; 
   }  */
   
-  @keyframes blink {
+  @keyframes blinks {
     0% {
       opacity: 0;
     }
@@ -213,13 +213,13 @@ body {
   
   .house {
     /* ... */
-    animation: blink 15s infinite;
+    animation: blinks 15s infinite;
     /* ... */
   }
 
   .clock {
     /* ... */
-    animation: blink 15s infinite;
+    animation: blinks 15s infinite;
     /* ... */
   }
 
@@ -256,7 +256,7 @@ body {
     width: 8%;
     z-index: 9999;
     transition: all 1s ease-out; /* add transition property */
-    animation: blink 5s infinite;
+    animation: blinks 5s infinite;
     cursor: pointer;
   }
 
