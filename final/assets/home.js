@@ -48,7 +48,3 @@ images.forEach((img) => {
     img.classList.toggle('zoom');
   });
 });
-
-
-
-

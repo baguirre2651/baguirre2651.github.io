@@ -3,22 +3,45 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    margin-top: 250px; 
   }
   
   #videos img {
-    border: 8px solid rgba(32, 40, 59, 0.979);
-    width: 400px;
-    height: 250px;
+    border: 10px solid rgba(32, 40, 59, 0.979);
+    width: 300px;
+    height: 199px;
+    margin-bottom: -30px;
     z-index: 10000;
   }
-
-/* pop up thing */ 
-
-/* Add your existing styles for video thumbnails and video pop-ups here */
-
-
-
+  
+  #pics {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+  
+  #pics img {
+    border: 10px solid rgba(32, 40, 59, 0.979);
+    width: 290px;
+    height: 180px;
+    margin: 25px;
+    margin-top: -60px;
+    z-index: 1;
+  }
+  
+  
+  #viral {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+  
+  #viral img {
+    border: 10px solid rgba(32, 40, 59, 0.979);
+    width: 290px;
+    height: 180px;
+    margin: 25px;
+    z-index: 10000;
+  }
   
 
   /* navigation bar top right*/
