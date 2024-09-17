@@ -1,0 +1,4 @@
+[submodule "personal"]
+    path = personal
+    url = https://github.com/baguirre2651/personal.git
+
