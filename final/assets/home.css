@@ -2,6 +2,38 @@ html{
     scroll-behavior:smooth;
 }
 
+/* Center container for Coding Projects, Videos, Art */
+#section2 {
+  height: auto; /* Auto to fit content dynamically */
+  width: 100%;
+  padding: 50px 0;
+  background-color: #ED6511;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px; /* Add spacing between items */
+}
+
+/* Add media query for smaller screens */
+@media (max-width: 768px) {
+  #column-container {
+      flex-direction: column; /* Stack the columns vertically on smaller screens */
+  }
+
+  .column {
+      width: 100%; /* Make columns take full width on smaller screens */
+  }
+}
+
+.container {
+  background-color: #005ADC; /* Blue color */
+  width: 100%;
+  height: 50%;
+  position: absolute;
+  top: 0%;
+  animation: color-bounce 60s infinite alternate;
+}
 
 
 body {
@@ -43,13 +75,12 @@ body {
 
   .rectangle {
     width: 100vw;
-    height: 50px;
+    height: 30px;
     position: absolute;
     bottom: 0%;
     background-color: #262A56;
     z-index: 9999;
   }
-
 
 
   .triangle {
@@ -137,6 +168,19 @@ body {
     margin-top: 0;
   }
 
+  #section1,
+  #section2,
+  #section3 {
+  height: 100vh; /* Each section will take full viewport height */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
 
   /* flower */
 
@@ -174,21 +218,33 @@ body {
     z-index: 2; /* set a higher z-index */
   }
   
-  #section1 {
+  /* #section1 {
     height: 700px;
     width: 100%;
-  }
+  } */
 
  
 
   /*WOrk Page*/ 
   #section2 {
-    height: 700px;
+    min-height: 600px; /* Flexible height */
     width: 100%;
-    padding: auto;
-    background-color:#ED6511;
-  }
-  
+    padding: 20px 0;
+    background-color: #ED6511;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -180px; /* Move the orange section up */
+    bottom: -110%;
+}
+
+/* Ensure the blue section is aligned properly */
+.blue-background-section {
+    background-color: #448cf8; /* Blue color */
+    width: 100%;
+    height: 200px; /* Adjust height as needed */
+    position: relative; /* Relative positioning to avoid conflicts */
+}
   
   h2 {
     position: relative;
@@ -197,32 +253,10 @@ body {
     font-weight: 700;
     font-size: 40px;
     color: wheat;
-    margin-top: -40px;
+    margin-top: -0px;
     padding-left:  0px;
     z-index: 9999 ;
   }
-
-  
-
-
-  .rectangled {
-    width: 100%;
-    height: 110px;
-    position: absolute;
-    bottom: -12%;
-    background-color: #ED6511;
-    z-index: 0;
-  }
-
-  .tango {
-    width: 100%;
-    height: 130px;
-    position: absolute;
-    bottom: -116%;
-    background-color: #ED6511;
-    z-index: 2;
-  }
-
 
   #q1-navbar {
     z-index: 3;
@@ -231,7 +265,7 @@ body {
 .triangled {
     width: 470vw;
     height: 300vh;
-    bottom: -120%;
+    bottom: -100%;
     position: absolute;
     left: -5vw;
     background-color: #FFDDA0;
@@ -242,7 +276,7 @@ body {
 .triangly {
     width: 90vh;
     height: 100vh;
-    bottom: -120%;
+    bottom: -100%;
     position: absolute;
     background-color: #FFDDA0;
     clip-path: polygon(0 100%, 100% 0, 105% 100%);
@@ -254,7 +288,7 @@ body {
         width: 100%;
         height: 43px;
         position: absolute;
-        bottom: -120%;
+        bottom: -100%;
         background-color: rgba(32, 40, 59, 0.979);
         z-index: 2;
       }
@@ -272,7 +306,7 @@ body {
     display: flex;
     justify-content: right;
     align-items: center;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
   
   
@@ -288,7 +322,7 @@ body {
     align-items: center;
     background-color: rgba(32, 40, 59, 0.979);
     border: 10px solid rgba(32, 40, 59, 0.979);
-    margin-top: 20px;
+    margin-top: 65px;
     width: 300px;
     height: 100px;
     z-index: 10000;
@@ -301,36 +335,42 @@ body {
     margin: 0px;
   }
   
-  
 
+ /* Contact Page */
+#section3 {
+  min-height: -100px; /* Ensure enough height */
+  width: 100%;
+  font-size: 30px;
+  font-family: "Georgia";
+  padding: 20px 0; /* Add some padding for better spacing */
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Align items to the top */
+  position: relative; /* Allow relative positioning */
+}
 
+/* Move the h1 text a bit lower */
+#section3 h1 {
+  margin-top: 50px; /* Move text lower */
+  text-align: center;
+}
 
+/* Icons in Contact Section */
+#section3 img {
+  width: 80px;
+  margin: 30px; /* Adjust margin to space icons properly */
+}
 
+/* Media Query for smaller screens */
+@media (max-width: 768px) {
+  #section3 {
+      min-height: auto; /* Ensure it adjusts on smaller screens */
+      padding: 40px 20px; /* Adjust padding for smaller screens */
+  }
 
-
-    /*Contact Page */ 
-    #section3 {
-        height: 700px;
-        width: 100%;
-        font-size: 30px;
-        font-family: "Georgia";
-        padding: auto;
-        background-color: white;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center; /* updated */
-      }
-      
-    #section3 h1 {
-        margin-top: 20px;
-        bottom: 10%;
-        text-align: center; /* updated */
-      }
-      
-    #section3 img {
-        width: 80px;
-        margin: 70px;
-      }
-
-    
+  #section3 h1 {
+      margin-top: 20px; /* Slightly reduce the margin on small screens */
+  }
+}
