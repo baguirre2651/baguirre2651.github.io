@@ -4,22 +4,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
-    <link rel="stylesheet" type="text/css" href="assets/film.css">
+    <title>Music Videos</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+
     <style>
+        /* Body and Fonts */
         body {
-            background-color: wheat;
             margin: 0;
             padding: 0;
-            font-family: 'Arial', sans-serif;
+            background-color: #F4F3EF;
+            font-family: 'Poppins', sans-serif;
+            color: rgba(32, 40, 59, 0.979);
         }
 
         h2 {
             text-align: center;
-            margin: 30px 0;
-            font-size: 36px;
-            font-weight: bold;
-            color: rgba(32, 40, 59, 0.979);
+            margin: 50px 0;
+            font-size: 48px;
+            font-weight: 500;
+            font-family: 'Playfair Display', serif;
+            color: #202837;
+        }
+
+        /* Grid Layout */
+        #videos {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Video Container Styling */
+        .video-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .video-container:hover {
+            transform: scale(1.03);
+        }
+
+        /* Image Styling */
+        .video-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Hover Overlay with Title */
+        .video-title {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: 600;
+            color: white;
+            background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.6));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .video-container:hover .video-title {
+            opacity: 1;
+        }
+
+        /* Navigation Bar */
+        #q2-navbar {
+            font-family: 'Poppins', sans-serif;
+            background-color: rgba(32, 40, 59, 0.979);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 2px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 999;
+        }
+
+        .q2-navitem {
+            font-size: 16px;
+            font-weight: 600;
+            color: white;
+            margin-left: 20px;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .q2-navitem:hover {
+            color: #F4A261;
+        }
+
+        /* Media Query for Mobile */
+        @media (max-width: 768px) {
+            #videos {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .q2-navitem {
+                margin: 10px 0;
+            }
+
+            #q2-navbar {
+                flex-direction: column;
+                align-items: flex-end;
+            }
         }
     </style>
 </head>
@@ -36,38 +138,42 @@
     </nav>
 
     <div id="media">
-        <h2>Work</h2>
+        <h2>Music Videos</h2>
         <div id="videos">
             <a href="https://youtu.be/7EWTjf5n6kk" target="_blank">
-                <img src="assets/videos/EE.png" alt="Ireland" />
+                <div class="video-container">
+                    <img src="assets/videos/EE.png" alt="Ireland">
+                    <span class="video-title">Ireland</span>
+                </div>
             </a>
             <a href="https://youtu.be/9G2Gl9u4O2A" target="_blank">
-                <img src="assets/videos/JP.png" alt="Japan" />
+                <div class="video-container">
+                    <img src="assets/videos/JP.png" alt="Japan">
+                    <span class="video-title">Japan</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=p3Yi4r8Nf08&t=45s&ab_channel=BryanAguirre" target="_blank">
+                <div class="video-container">
+                    <img src="assets/videos/newyork.png" alt="New York">
+                    <span class="video-title">New York</span>
+                </div>
+            </a>
+            <a href="https://youtu.be/1epCPWyym0s?si=Uq5Zvp5unfvvtzW4" target="_blank">
+                <div class="video-container">
+                    <img src="assets/videos/berlin.png" alt="Berlin">
+                    <span class="video-title">Berlin</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=wEVXiJr_Ttc&ab_channel=BryanAguirre" target="_blank">
+                <div class="video-container">
+                    <img src="assets/videos/hawaii.png" alt="Hawaii">
+                    <span class="video-title">Hawaii</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=Kbx1qkkAtu0&ab_channel=BryanAguirre" target="_blank">
+                <div class="video-container">
+                    <img src="assets/videos/spain.png" alt="Spain">
+                    <span class="video-title">Spain</span>
+                </div>
             </a>
             <a href="https://youtu.be/EPY5VI0oyTg" target="_blank">
-                <img src="assets/videos/guat.png" alt="New York" />
-            </a>
-            <a href="#" target="_blank">
-                <img src="assets/videos/guat.png" alt="Placeholder 4" />
-            </a>
-            <a href="#" target="_blank">
-                <img src="assets/videos/guat.png" alt="Placeholder 5" />
-            </a>
-            <a href="#" target="_blank">
-                <img src="assets/videos/guat.png" alt="Placeholder 6" />
-            </a>
-            <a href="#" target="_blank">
-                <img src="assets/videos/guat.png" alt="Placeholder 7" />
-            </a>
-            <a href="#" target="_blank">
-                <img src="assets/videos/guat.png" alt="Placeholder 8" />
-            </a>
-            <a href="#" target="_blank">
-                <img src="assets/videos/guat.png" alt="Placeholder 9" />
-            </a>
-        </div>
-    </div>
-
-</body>
-
-</html>

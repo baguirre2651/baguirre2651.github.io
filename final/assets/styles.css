@@ -83,7 +83,7 @@ body {
     animation: color-bounce 60s infinite alternate;
   }
   @keyframes color-bounce {
-    0% {
+    100% {
       background-color: #005ADC;
     }
     25% {
