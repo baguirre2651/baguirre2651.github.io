@@ -358,14 +358,13 @@ body {
 
 
   #figure{
-    width: 5%;
-    height: 6%;
+    width: 4%;
+    height: 22%;
     position: absolute;
-    top: 78%;
+    top: 72%;
     left: 54%;
     transform: translate(-50%, -50%);
-    z-index: 10000000;
-    animation: moveToLeft 700s infinite, blink 100s steps(20) infinite;
+    z-index: 1000000000;
   }
 
 
