@@ -74,25 +74,28 @@ body {
       z-index: 999; 
     } */
   
-  .container {
-    background-color: #005ADC;
-    width: 100%;
-    height: 50%;
-    position: absolute;
-    top: 0%;
-    animation: color-bounce 60s infinite alternate;
-  }
-  @keyframes color-bounce {
-    100% {
+    .container {
       background-color: #005ADC;
-    }
-    25% {
-      background-color: #db967b8a; /* Change to your desired second color */
-    }
-
-    100% {
-      background-color: black;
-    }
+      width: 100%;
+      height: 50%;
+      position: absolute;
+      top: 0;
+      animation: color-bounce 240s infinite alternate; /* Total duration increased */
+  }
+  
+  @keyframes color-bounce {
+      0% {
+          background-color: #005ADC; /* Initial sky color */
+      }
+      50% {
+          background-color: #005ADC; /* Hold initial color for 50% of animation */
+      }
+      75% {
+          background-color: #db967b8a; /* Second color transition */
+      }
+      100% {
+          background-color: black; /* Final transition to black */
+      }
   }
 
     /* .triangle {
