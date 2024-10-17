@@ -91,26 +91,30 @@ body {
       height: 50%;
       position: absolute;
       top: 0;
-      animation: color-bounce 100s infinite alternate; /* 100 seconds total duration */
+      animation: color-bounce 60s infinite alternate; /* 100 seconds total duration */
     }
     
-    @keyframes color-bounce {
-      0% {
-        background-color: #005ADC; /* Initial blue */
-      }
-      15% {
-        background-color: #99afcf; /* Lighter blue */
-      }
-      20% {
-        background-color: #ffb477; /* Orange-like transition */
-      }
-      75% {
-        background-color:rgb(0, 0, 0); /* Black, sun appears here */
-      }
-      100% {
-        background-color: #005ADC; /* Back to initial blue */
-      }
-    }
+    
+@keyframes color-bounce {
+  0% {
+    background-color: #005ADC; /* Initial blue */
+  }
+  60% {
+    background-color: #005ADC; /* Stay at initial blue longer */
+  }
+  70% {
+    background-color: #99afcf; /* Lighter blue transition */
+  }
+  80% {
+    background-color: #ffb477; /* Orange-like transition */
+  }
+  90% {
+    background-color: black; /* Final transition to black */
+  }
+  100% {
+    background-color: #005ADC; /* Back to initial blue */
+  }
+}
     
   
     
