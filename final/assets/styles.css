@@ -91,7 +91,7 @@ body {
       height: 50%;
       position: absolute;
       top: 0;
-      animation: color-bounce 300s infinite alternate; /* 100 seconds total duration */
+      animation: color-bounce 100s infinite alternate; /* 100 seconds total duration */
     }
     
     @keyframes color-bounce {
