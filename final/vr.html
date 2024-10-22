@@ -54,6 +54,7 @@
     right: 150px;
     width: 200px; /* Adjust the size of the image as needed */
     height: 50%;
+    cursor: pointer; 
 
 }
 
@@ -72,6 +73,8 @@
             width: 150px; /* Adjusted size */
             height: 200px;
 }
+
+
 
 /* Define the walking animation */
 @keyframes walk-right {
@@ -126,16 +129,6 @@
         <div id="sun"></div>
     </a>
 
-    <!-- Castle tower structure in the bottom-right -->
-    <div id="castle-tower">
-        <div id="castle-top">
-            <div class="crenellation"></div>
-            <div class="crenellation"></div>
-            <div class="crenellation"></div>
-            <div class="crenellation"></div>
-        </div>
-        <div class="window"></div> <!-- Window in the tower -->
-    </div>
 
     <!-- Bridge image at the bottom -->
     <div id="bridge-adder"></div>
@@ -169,5 +162,17 @@
         // Add event listener for click on the entire document
         document.addEventListener('click', togglePlay);
     </script>
+
+<!-- Anchor tag to make the castle clickable and link to castle.html -->
+<a href="castle.html">
+    <img id="castle-image" src="assets/images/castle.png" alt="castle image">
+</a>
+
+<script>
+    // Optionally, you can add an event listener for the click if needed
+    document.getElementById('castle').addEventListener('click', function() {
+        console.log("Castle clicked!");
+    });
+</script>
 </body>
 </html>
