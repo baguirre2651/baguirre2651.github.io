@@ -29,20 +29,57 @@
     <p>Hover/Click</p>
   </div>
 
-  <audio id = "song">
-    <source src= assets/music/flute.mp3>
-  </audio>
-  <script>
+  <audio id="song">
+    <source src="assets/music/flute.mp3" type="audio/mp3">
+</audio>
+
+<!-- No Surprises Song Audio Element -->
+<audio id="no_surprises_song">
+    <source src="assets/music/No_Surprises.mp3" type="audio/mp3">
+</audio>
+
+<audio id="aphex_song">
+  <source src="assets/music/QKThr.mp3" type="audio/mp3">
+</audio>
+
+
+<script>
+    // Handle click to play or pause flute song
     window.addEventListener('click', () => {
-      const audioElement = document.getElementById("song");
-  
-      if (audioElement.paused) {
-        audioElement.play();
-      } else {
-        audioElement.pause();
-      }
+        const audioElement = document.getElementById("song");
+        
+        if (audioElement.paused) {
+            audioElement.play();
+        } else {
+            audioElement.pause();
+        }
     });
-  </script>
+
+    // Handle 'R' keypress to play or pause No Surprises song
+    window.addEventListener('keydown', (event) => {
+        if (event.key === 'r' || event.key === 'R') {
+            const noSurprisesAudio = document.getElementById("no_surprises_song");
+            if (noSurprisesAudio.paused) {
+                noSurprisesAudio.play();
+            } else {
+                noSurprisesAudio.pause();
+            }
+        }
+    });
+
+    // Handle 'Q' keypress to play or pause Aphex Twin song
+    window.addEventListener('keydown', (event) => {
+        if (event.key === 'q' || event.key === 'Q') {
+            const aphexAudio = document.getElementById("aphex_song"); // Fixed typo here
+            if (aphexAudio.paused) {
+                aphexAudio.play();
+            } else {
+                aphexAudio.pause();
+            }
+        }
+    });
+</script>
+
   <iframe class="mumu" width="500" height="315" src="https://www.youtube.com/watch?v=rp4vQjrBKBw&ab_channel=AphexTwin-Topic" frameborder="0" allowfullscreen></iframe>
 
 
