@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>360 Webpage</title>
     <link rel="stylesheet" type="text/css" href="assets/vr.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <audio id="myAudio" src="assets/music/Fairy Fountain.mp3"></audio>
     <style>
         html,
@@ -195,26 +197,39 @@
     <img id="mystar-image" src="assets/images/star2.png" alt="stars top image">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js"></script>
     <script src="assets/vr.js"></script>
-     <script>
-        // Get the audio element
-        var audio = document.getElementById("myAudio");
+    <script>
         
-        // Variable to track whether the audio is playing
+        var audio = document.getElementById("myAudio");
         var isPlaying = false;
 
-        // Function to toggle play and pause
-        function togglePlay() {
-            if (isPlaying) {
-                audio.pause();  // Pause the song
-            } else {
-                audio.play();   // Play the song
-            }
-            isPlaying = !isPlaying;  // Toggle the play state
-        }
+        window.onload = function() {
+            audio.play().then(() => {
+                isPlaying = true;
+            }).catch(error => {
+                console.log('Autoplay prevented:', error);
+            });
+        };
 
-        // Add event listener for click on the entire document
-        document.addEventListener('click', togglePlay);
+// Function to toggle play and pause
+    function togglePlay() {
+    if (isPlaying) {
+        audio.pause();  // Pause the song
+        isPlaying = false;
+    } else {
+        audio.play().then(() => {
+            isPlaying = true;
+        }).catch(error => {
+            console.log('Play prevented:', error);
+        });
+    }
+}
+
+// Add event listener for click on the entire document
+document.addEventListener('click', togglePlay);
+
     </script>
+    
+    
 
 <!-- Anchor tag to make the castle clickable and link to castle.html -->
 <a href="castle.html">
