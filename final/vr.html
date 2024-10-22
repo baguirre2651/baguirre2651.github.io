@@ -45,7 +45,7 @@
     width: 100px; /* Adjust the size of the image as needed */
     height: auto;
     animation: blink 5s infinite ;
-    animation: note-right 190s linear infinite; /* Apply the blink animation */
+    animation: note-right 160s linear infinite; /* Apply the blink animation */
 }
 
 #castle-image {
@@ -120,7 +120,7 @@
         
         #bridge {
             position: fixed;
-            bottom: 0;
+            bottom: 0%;
             left: -1px;
             width: 102%;
             height: 51.5%; /* Adjust the height to your liking */
@@ -130,14 +130,15 @@
             z-index: 1;
         }
 
+        /* Adjusted CSS for the speech bubble */
         .speech-bubble {
             position: absolute;
-            bottom: 800px; /* Adjust position above the castle */
-            right: 100px; /* Adjust position to the left of the castle */
+            bottom: 600px; /* Adjust position above the castle */
+            right: 170px; /* Adjust position relative to the castle */
             background-color: white;
             border-radius: 10px;
             padding: 10px;
-            width: 150px;
+            width: 40px;
             font-family: Arial, sans-serif;
             font-size: 14px;
             text-align: center;
@@ -149,11 +150,25 @@
             content: '';
             position: absolute;
             bottom: -20px; /* Place below the bubble */
-            left: 50%;
+            left: 40%;
             margin-left: -10px;
             border-width: 10px;
             border-style: solid;
             border-color: white transparent transparent transparent; /* White triangle pointing down */
+        }
+
+         #hover-image {
+            position: absolute;
+            bottom: 50px;  /* Adjust based on where you want the image */
+            left: 50%;
+            width: 300px;
+            height: auto;
+            display: none;  /* Initially hidden */
+        }
+
+        /* Show the image when hovering over the speech bubble */
+        .speech-bubble:hover + #hover-image {
+            display: block;  /* Show the image */
         }
 
         
@@ -206,8 +221,9 @@
     <img id="castle-image" src="assets/images/castle.png" alt="castle image">
 </a>
 <div class="speech-bubble">
-    Play me a song, Bryan 
+    **
 </div>
+
 
 <script>
     // Optionally, you can add an event listener for the click if needed
