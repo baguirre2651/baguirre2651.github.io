@@ -130,6 +130,32 @@
             z-index: 1;
         }
 
+        .speech-bubble {
+            position: absolute;
+            bottom: 650px; /* Adjust position above the castle */
+            right: 100px; /* Adjust position to the left of the castle */
+            background-color: white;
+            border-radius: 10px;
+            padding: 10px;
+            width: 150px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            text-align: center;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* CSS for the little speech bubble triangle */
+        .speech-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -20px; /* Place below the bubble */
+            left: 50%;
+            margin-left: -10px;
+            border-width: 10px;
+            border-style: solid;
+            border-color: white transparent transparent transparent; /* White triangle pointing down */
+        }
+
         
 
     </style>
@@ -179,6 +205,9 @@
 <a href="castle.html">
     <img id="castle-image" src="assets/images/castle.png" alt="castle image">
 </a>
+<div class="speech-bubble">
+    Play me a song, Bryan 
+</div>
 
 <script>
     // Optionally, you can add an event listener for the click if needed
