@@ -33,3 +33,8 @@ document.addEventListener("DOMContentLoaded", function() {
     document.querySelector(".mumu").style.left = "0";
   }, ); // Adjust the delay as needed (measured in milliseconds)
 });
+
+
+document.getElementById('castle').addEventListener('click', function() {
+  console.log("Castle clicked!");
+});

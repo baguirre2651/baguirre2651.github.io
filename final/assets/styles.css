@@ -6,6 +6,7 @@ body {
   background-color: #ED6511;
   position: absolute;
   overflow: hidden; /* Prevent scrolling */
+  overflow-y: auto; 
 }
 
 
@@ -318,7 +319,6 @@ body {
   left: 24%;
   transform: translate(-50%, -50%);
   z-index: 1000000;
-  animation: swayToLefty 16s infinite;
 }
 
 #flowers-image2 {
@@ -329,7 +329,6 @@ body {
   left: 74%;
   transform: translate(-50%, -50%);
   z-index: 1000000;
-  animation: swayToRighty 16s infinite;
 }
   #walk {
     width: 27%;
@@ -412,4 +411,16 @@ body {
     z-index: 10001;
 
   }
+
+  #stars_bot-image {
+    position: absolute;
+    top: 10%;
+    right: 65%;
+    width: 200px; /* Adjusted size */
+    height: 90px;
+    transform: rotate(180deg);
+    z-index: 10000;
+}
+
+
 
