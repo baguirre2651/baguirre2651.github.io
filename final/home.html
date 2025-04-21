@@ -11,7 +11,7 @@
 
     <header>
         <h1>About</h1>
-        <p>My Name is Bryan Aguirre I'm from Long Beach, CA and I studying Data Science and Economics at UC Berkeley. </p>
+        <p>My Name is Bryan Aguirre I'm from Long Beach, CA and I studied Data Science and Economics at the University of California, Berkeley. </p>
         <p> Apart from coding, some of my hobbies are making comedy skits on social media via Instagram, Twitter, Linkedin
             and Tiktok. </p>
         <p> I also like to draw doodles and love to shoot short films on my $10 digital camera.</p>
@@ -104,7 +104,20 @@
         <img class="me" src="assets/images/bryan.png" alt="bryan">
       </nav>
 
+      
 
 
+
+      <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener("click", function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute("href")).scrollIntoView({
+              behavior: "smooth"
+            });
+          });
+        });
+      </script>
     </body>
+    </html>
   

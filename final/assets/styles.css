@@ -290,12 +290,12 @@ body {
     transform: translate(-10px, 130px) scale(7); /* add hover effect  */
     animation: none; /* remove animation on hover */
   }
-
+/* 
   .mumu {
     position: absolute;
     top: -9999px;
     left: -9999px;
-  }
+  } */
   
  
 
@@ -392,12 +392,12 @@ body {
   }
 
 
-  #image{
+  #floimage{
     width: 60%;
-    height: 20%;
+    height: 24%;
     position: absolute;
-    top: 65%;
-    left: 49%;
+    top: 58%;
+    left: 44.5%;
     z-index: 10001;
 
   }
