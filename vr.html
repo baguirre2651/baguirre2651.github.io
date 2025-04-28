@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <title>360 Webpage</title>
     <link rel="stylesheet" type="text/css" href="assets/vr.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js" defer></script>
+    <audio id="myAudio" src="assets/music/Fairy Fountain.mp3"></audio>
     <style>
         html,
         body {
@@ -11,19 +14,205 @@
             height: 100%;
             margin: 0;
             padding: 0;
-            background-image: url("assets/images/sky.jpeg");
-            background-size: cover;
-            background-repeat: no-repeat;
+            background-color: #191970; /* Sky color */
+            position: relative;
         }
         #panorama {
             width: 100%;
             height: 100%;
         }
+        /* CSS for the small image in the bottom corner */
+#corner-image {
+    position: fixed;
+    bottom: 380px;
+    left: 150px;
+    width: 100px; /* Adjust the size of the image as needed */
+    height: auto;
+    animation: walk-right 190s linear infinite; /* Adjust the duration for slower movement */
+}
+
+#tree-image{
+    position: fixed;
+    bottom: 380px;
+    left: -1px;
+    width: 110px; /* Adjust the size of the image as needed */
+    height: 50%;
+
+}
+
+#notes-image {
+    position: fixed;
+    bottom: 400px;
+    left: 230px;
+    width: 100px; /* Adjust the size of the image as needed */
+    height: auto;
+    animation: blink 5s infinite ;
+    animation: note-right 160s linear infinite; /* Apply the blink animation */
+}
+
+#castle-image {
+    position: fixed;
+    bottom: 380px;
+    right: 150px;
+    width: 200px; /* Adjust the size of the image as needed */
+    height: 50%;
+    cursor: pointer; 
+
+}
+
+/*star for my guy */ 
+#mystar-image {
+        position: fixed;
+        bottom: 400px;
+        left: 160px;
+        width: 100px; /* Adjust the size of the image as needed */
+        height: auto;
+        transform: rotate(180deg);
+        animation: walk-right 190s linear infinite;
+}
+
+#stars_bot-image {
+            position: absolute;
+            top: 0%;
+            left: 65%;
+            width: 200px; /* Adjusted size */
+            height: 160px;
+            transform: rotate(180deg);
+}
+#star2-image {
+            position: absolute;
+            top: 10%;
+            left: 90%;
+            width: 150px; /* Adjusted size */
+            height: 200px;
+}
+
+
+
+/* Define the walking animation */
+@keyframes walk-right {
+    0% { left: 150px; }           /* Starting position */
+    50% { left: calc(100% - 100px); }  /* Move to the end of the screen */
+    100% { left: 150px; }         /* Return to the starting position */
+}
+
+/* Define the blink animation */
+@keyframes blink {
+    0%, 100% { opacity: 1; } /* Fully visible */
+    50% { opacity: 0; }      /* Invisible */
+}
+@keyframes note-right {
+    0% { left: 230px; }           /* Starting position */
+    50% { left: calc(100% - 100px); }  /* Move to the end of the screen */
+    100% { left: 150px; }        /* Invisible */
+}
+
+        /* CSS for the sun */
+        #sun {
+            position: absolute;
+            top: 1%;
+            right: 75%;
+            width: 100px; /* Adjusted size */
+            height: 100px;
+            background-color: #FDD300; /* Sun color */
+            border-radius: 50%; /* Makes it a circle */
+            box-shadow: 0 0 20px #FDD300; /* Adds a glowing effect */
+            cursor: pointer; /* Changes cursor to pointer when hovering */
+        }
+        
+        #bridge {
+            position: fixed;
+            bottom: 0%;
+            left: -1px;
+            width: 102%;
+            height: 51.5%; /* Adjust the height to your liking */
+            background-image: url('assets/images/bridge.png');
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+        }
+
+        /* Adjusted CSS for the speech bubble */
+        .speech-bubble {
+            position: absolute;
+            bottom: 600px; /* Adjust position above the castle */
+            right: 170px; /* Adjust position relative to the castle */
+            background-color: white;
+            border-radius: 10px;
+            padding: 10px;
+            width: 40px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            text-align: center;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* CSS for the little speech bubble triangle */
+        .speech-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -20px; /* Place below the bubble */
+            left: 40%;
+            margin-left: -10px;
+            border-width: 10px;
+            border-style: solid;
+            border-color: white transparent transparent transparent; /* White triangle pointing down */
+        }
+
+         #hover-image {
+            position: absolute;
+            bottom: 50px;  /* Adjust based on where you want the image */
+            left: 50%;
+            width: 300px;
+            height: auto;
+            display: none;  /* Initially hidden */
+        }
+
+        /* Show the image when hovering over the speech bubble */
+        .speech-bubble:hover + #hover-image {
+            display: block;  /* Show the image */
+        }
+
+        
+
     </style>
-</head>
-<body>
     <div id="panorama"></div>
+    
+    <!-- Anchor tag to make the sun clickable and link to home.html -->
+    <a href="index.html">
+        <div id="sun"></div>
+    </a>
+
+
+    <!-- Bridge image at the bottom -->
+    <div id="bridge-adder"></div>
+    <div id="bridge"></div>
+
+    <img id="corner-image" src="assets/images/lilb.png" alt="Small image">
+    <img id="notes-image" src="assets/images/notes.png" alt="Small image">
+    <img id="tree-image" src="assets/images/tree.png" alt="tree image">
+    <img id="castle-image" src="assets/images/castle.png" alt="castle image">
+    <img id="stars_bot-image" src="assets/images/star2.png" alt="stars image">
+    <img id="star2-image" src="assets/images/star2.png" alt="stars top image">
+    <img id="mystar-image" src="assets/images/star2.png" alt="stars top image">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js"></script>
     <script src="assets/vr.js"></script>
+    
+
+<!-- Anchor tag to make the castle clickable and link to castle.html -->
+<a href="castle.html">
+    <img id="castle-image" src="assets/images/castle.png" alt="castle image">
+</a>
+<div class="speech-bubble">
+    **
+</div>
+
+
+<script>
+    // Optionally, you can add an event listener for the click if needed
+    document.getElementById('castle').addEventListener('click', function() {
+        console.log("Castle clicked!");
+    });
+</script>
 </body>
 </html>

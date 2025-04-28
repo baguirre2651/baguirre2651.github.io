@@ -6,6 +6,7 @@ body {
   background-color: #ED6511;
   position: absolute;
   overflow: hidden; /* Prevent scrolling */
+  overflow-y: auto; 
 }
 
 
@@ -73,28 +74,51 @@ body {
       border-radius: 60% 50% 0 0;
       z-index: 999; 
     } */
-  
-  .container {
-    background-color: #005ADC;
-    width: 100%;
-    height: 50%;
-    position: absolute;
-    top: 0%;
-    animation: color-bounce 60s infinite alternate;
-  }
-  @keyframes color-bounce {
-    0% {
+
+    #sun {
+      position: absolute;
+      bottom: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: auto;
+      opacity: 0; /* Initially hidden */
+      transition: opacity 1s ease-in-out;
+    }
+    
+    .container {
       background-color: #005ADC;
+      width: 100%;
+      height: 50%;
+      position: absolute;
+      top: 0;
+      animation: color-bounce 50s infinite alternate; /* 100 seconds total duration */
     }
-    25% {
-      background-color: #db967b8a; /* Change to your desired second color */
-    }
-
-    100% {
-      background-color: black;
-    }
+    
+    
+@keyframes color-bounce {
+  0% {
+    background-color: #005ADC; /* Initial blue */
   }
-
+  60% {
+    background-color: #005ADC; /* Stay at initial blue longer */
+  }
+  70% {
+    background-color: #99afcf; /* Lighter blue transition */
+  }
+  80% {
+    background-color: #ffb477; /* Orange-like transition */
+  }
+  90% {
+    background-color: black; /* Final transition to black */
+  }
+  100% {
+    background-color: #005ADC; /* Back to initial blue */
+  }
+}
+    
+  
+    
     /* .triangle {
   width: 470vw;
   height: 170vh;
@@ -188,40 +212,7 @@ body {
     align-items: center;
   }
   
-   /* .rectangle {
-    position: fixed;
-    background-color: #262A56;
-    z-index: 99998; 
-    top: 48%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%; 
-    height: 5%; 
-  }  */
-  
-  @keyframes blink {
-    0% {
-      opacity: 0;
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-  
-  .house {
-    /* ... */
-    animation: blink 15s infinite;
-    /* ... */
-  }
 
-  .clock {
-    /* ... */
-    animation: blink 15s infinite;
-    /* ... */
-  }
 
 
   #cloud-image {
@@ -229,7 +220,7 @@ body {
     top: 0%;
     right: 100px; /* Adjust the value to determine how far the animation sways */
     transform: translateY(-50%);
-    animation: sway-right 6s ease-in-out infinite;
+    animation: sway-right 1100s ease-in-out infinite;
     width: 20%;
     z-index: 9999;
   }
@@ -256,7 +247,6 @@ body {
     width: 8%;
     z-index: 9999;
     transition: all 1s ease-out; /* add transition property */
-    animation: blink 5s infinite;
     cursor: pointer;
   }
 
@@ -300,12 +290,12 @@ body {
     transform: translate(-10px, 130px) scale(7); /* add hover effect  */
     animation: none; /* remove animation on hover */
   }
-
+/* 
   .mumu {
     position: absolute;
     top: -9999px;
     left: -9999px;
-  }
+  } */
   
  
 
@@ -329,7 +319,6 @@ body {
   left: 24%;
   transform: translate(-50%, -50%);
   z-index: 1000000;
-  animation: swayToLefty 16s infinite;
 }
 
 #flowers-image2 {
@@ -340,7 +329,6 @@ body {
   left: 74%;
   transform: translate(-50%, -50%);
   z-index: 1000000;
-  animation: swayToRighty 16s infinite;
 }
   #walk {
     width: 27%;
@@ -355,14 +343,13 @@ body {
 
 
   #figure{
-    width: 5%;
-    height: 6%;
+    width: 4%;
+    height: 22%;
     position: absolute;
-    top: 78%;
+    top: 72%;
     left: 54%;
     transform: translate(-50%, -50%);
-    z-index: 10000000;
-    animation: moveToLeft 700s infinite, blink 100s steps(20) infinite;
+    z-index: 1000000000;
   }
 
 
@@ -405,12 +392,12 @@ body {
   }
 
 
-  #image{
+  #floimage{
     width: 60%;
-    height: 20%;
+    height: 24%;
     position: absolute;
-    top: 65%;
-    left: 49%;
+    top: 58%;
+    left: 44.5%;
     z-index: 10001;
 
   }
@@ -424,3 +411,16 @@ body {
     z-index: 10001;
 
   }
+
+  #stars_bot-image {
+    position: absolute;
+    top: 10%;
+    right: 65%;
+    width: 200px; /* Adjusted size */
+    height: 90px;
+    transform: rotate(180deg);
+    z-index: 10000;
+}
+
+
+
