@@ -93,6 +93,7 @@ body {
       position: absolute;
       top: 0;
       animation: color-bounce 50s infinite alternate; /* 100 seconds total duration */
+      pointer-events: none;
     }
     
     
@@ -437,5 +438,141 @@ body {
   text-align: center;
 }
 
+.container {
+  z-index: 1;
+  pointer-events: none;
+}
 
+#shapes-image {
+  object-fit: fill;
+}
 
+#flowers-image,
+#flowers-image2,
+#floimage,
+#image2 {
+  object-fit: cover;
+  object-position: center bottom;
+}
+
+#image2 {
+  bottom: -1px;
+}
+
+@media (max-width: 700px) {
+  body {
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  header {
+    right: auto;
+    left: 0;
+    width: 100%;
+    top: 31%;
+    font-size: 22px;
+    text-align: center;
+  }
+
+  h1,
+  h2 {
+    font-size: 26px;
+  }
+
+  header h1 {
+    transform: translateX(0);
+  }
+
+  header h2 {
+    display: block;
+    transform: translateX(27vw);
+    margin-top: 4px;
+  }
+
+  .center-text {
+    top: 35%;
+  }
+
+  .house {
+    top: 47%;
+    width: clamp(52px, 13vw, 72px);
+  }
+
+  .house:hover {
+    transform: translate(-10px, 110px) scale(5.2);
+  }
+
+  #walk {
+    width: 44%;
+    height: auto;
+    top: 64%;
+    left: 54%;
+  }
+
+  #figure {
+    width: 8%;
+    height: auto;
+    top: 72%;
+    left: 55%;
+  }
+
+  #flowers-image,
+  #flowers-image2,
+  #floimage,
+  #image2 {
+    object-fit: cover;
+    object-position: center bottom;
+  }
+
+  #flowers-image,
+  #flowers-image2 {
+    width: 58%;
+    height: 54%;
+  }
+
+  #flowers-image {
+    top: 76%;
+    left: 27%;
+  }
+
+  #flowers-image2 {
+    top: 76%;
+    left: 75%;
+  }
+
+  #floimage {
+    top: 62%;
+    left: 45%;
+    width: 74%;
+    height: 28%;
+  }
+
+  #image2 {
+    width: 78%;
+    height: 23%;
+    top: 68%;
+    left: -12%;
+  }
+}
+
+@media (min-width: 1500px) {
+  .house {
+    top: 47%;
+  }
+
+  #walk {
+    width: 25%;
+  }
+
+  #figure {
+    width: 3.6%;
+  }
+
+  #flowers-image {
+    height: 61%;
+  }
+
+  #flowers-image2 {
+    height: 52%;
+  }
+}

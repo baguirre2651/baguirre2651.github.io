@@ -1,218 +1,306 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>360 Webpage</title>
     <link rel="stylesheet" type="text/css" href="assets/vr.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="script.js" defer></script>
     <audio id="myAudio" src="assets/music/Fairy Fountain.mp3"></audio>
     <style>
+        :root {
+            --bridge-height: 51.5vh;
+            --bridge-top: var(--bridge-height);
+            --character-width: clamp(72px, 6vw, 112px);
+            --castle-height: clamp(330px, 51vh, 540px);
+        }
+
         html,
         body {
             width: 100%;
             height: 100%;
             margin: 0;
             padding: 0;
-            background-color: #191970; /* Sky color */
+            background-color: #191970;
+            overflow: hidden;
+        }
+
+        body {
             position: relative;
         }
+
         #panorama {
+            position: fixed;
+            inset: 0;
             width: 100%;
             height: 100%;
+            z-index: 0;
         }
-        /* CSS for the small image in the bottom corner */
-#corner-image {
-    position: fixed;
-    bottom: 380px;
-    left: 150px;
-    width: 100px; /* Adjust the size of the image as needed */
-    height: auto;
-    animation: walk-right 190s linear infinite; /* Adjust the duration for slower movement */
-}
 
-#tree-image{
-    position: fixed;
-    bottom: 380px;
-    left: -1px;
-    width: 110px; /* Adjust the size of the image as needed */
-    height: 50%;
-
-}
-
-#notes-image {
-    position: fixed;
-    bottom: 400px;
-    left: 230px;
-    width: 100px; /* Adjust the size of the image as needed */
-    height: auto;
-    animation: blink 5s infinite ;
-    animation: note-right 160s linear infinite; /* Apply the blink animation */
-}
-
-#castle-image {
-    position: fixed;
-    bottom: 380px;
-    right: 150px;
-    width: 200px; /* Adjust the size of the image as needed */
-    height: 50%;
-    cursor: pointer; 
-
-}
-
-/*star for my guy */ 
-#mystar-image {
-        position: fixed;
-        bottom: 400px;
-        left: 160px;
-        width: 100px; /* Adjust the size of the image as needed */
-        height: auto;
-        transform: rotate(180deg);
-        animation: walk-right 190s linear infinite;
-}
-
-#stars_bot-image {
-            position: absolute;
-            top: 0%;
-            left: 65%;
-            width: 200px; /* Adjusted size */
-            height: 160px;
-            transform: rotate(180deg);
-}
-#star2-image {
-            position: absolute;
-            top: 10%;
-            left: 90%;
-            width: 150px; /* Adjusted size */
-            height: 200px;
-}
-
-
-
-/* Define the walking animation */
-@keyframes walk-right {
-    0% { left: 150px; }           /* Starting position */
-    50% { left: calc(100% - 100px); }  /* Move to the end of the screen */
-    100% { left: 150px; }         /* Return to the starting position */
-}
-
-/* Define the blink animation */
-@keyframes blink {
-    0%, 100% { opacity: 1; } /* Fully visible */
-    50% { opacity: 0; }      /* Invisible */
-}
-@keyframes note-right {
-    0% { left: 230px; }           /* Starting position */
-    50% { left: calc(100% - 100px); }  /* Move to the end of the screen */
-    100% { left: 150px; }        /* Invisible */
-}
-
-        /* CSS for the sun */
         #sun {
-            position: absolute;
+            position: fixed;
             top: 1%;
-            right: 75%;
-            width: 100px; /* Adjusted size */
-            height: 100px;
-            background-color: #FDD300; /* Sun color */
-            border-radius: 50%; /* Makes it a circle */
-            box-shadow: 0 0 20px #FDD300; /* Adds a glowing effect */
-            cursor: pointer; /* Changes cursor to pointer when hovering */
+            left: 18%;
+            width: clamp(86px, 7vw, 140px);
+            aspect-ratio: 1;
+            background-color: #fdd300;
+            border-radius: 50%;
+            box-shadow: 0 0 24px #fdd300;
+            cursor: pointer;
+            z-index: 5;
         }
-        
+
         #bridge {
             position: fixed;
-            bottom: 0%;
-            left: -1px;
-            width: 102%;
-            height: 51.5%; /* Adjust the height to your liking */
-            background-image: url('assets/images/bridge.png');
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: var(--bridge-height);
+            background-image: url("assets/images/bridge.png");
             background-size: cover;
-            background-position: center;
-            z-index: 1;
+            background-position: center top;
+            z-index: 10;
         }
 
-        /* Adjusted CSS for the speech bubble */
+        #corner-image {
+            position: fixed;
+            bottom: var(--bridge-top);
+            left: 7vw;
+            width: var(--character-width);
+            height: auto;
+            transform: translateY(2.8vh);
+            animation: walk-right 190s linear infinite;
+            z-index: 30;
+        }
+
+        #mystar-image {
+            position: fixed;
+            bottom: calc(var(--bridge-top) - 1vh);
+            left: 7vw;
+            width: clamp(72px, 6vw, 108px);
+            height: auto;
+            transform: rotate(180deg);
+            animation: walk-right-star 190s linear infinite;
+            z-index: 29;
+        }
+
+        #notes-image {
+            position: fixed;
+            bottom: calc(var(--bridge-top) + 6vh);
+            left: 11vw;
+            width: clamp(70px, 6vw, 108px);
+            height: auto;
+            animation: note-right 160s linear infinite;
+            z-index: 35;
+        }
+
+        #tree-image {
+            position: fixed;
+            bottom: var(--bridge-top);
+            left: 0;
+            width: clamp(100px, 8vw, 150px);
+            height: calc(100vh - var(--bridge-height));
+            object-fit: cover;
+            object-position: left bottom;
+            z-index: 12;
+        }
+
+        #castle-link {
+            position: fixed;
+            right: clamp(70px, 10vw, 150px);
+            bottom: var(--bridge-top);
+            height: var(--castle-height);
+            transform: translateY(3.2vh);
+            z-index: 24;
+        }
+
+        #castle-image {
+            display: block;
+            height: 100%;
+            width: auto;
+            cursor: pointer;
+        }
+
         .speech-bubble {
-            position: absolute;
-            bottom: 600px; /* Adjust position above the castle */
-            right: 170px; /* Adjust position relative to the castle */
+            position: fixed;
+            right: clamp(60px, 9vw, 140px);
+            bottom: calc(var(--bridge-top) + min(40vh, 410px));
             background-color: white;
             border-radius: 10px;
-            padding: 10px;
-            width: 40px;
+            padding: 14px 16px;
+            min-width: 56px;
             font-family: Arial, sans-serif;
             font-size: 14px;
+            font-weight: 700;
             text-align: center;
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 28;
         }
 
-        /* CSS for the little speech bubble triangle */
         .speech-bubble::after {
-            content: '';
+            content: "";
             position: absolute;
-            bottom: -20px; /* Place below the bubble */
+            bottom: -20px;
             left: 40%;
             margin-left: -10px;
             border-width: 10px;
             border-style: solid;
-            border-color: white transparent transparent transparent; /* White triangle pointing down */
+            border-color: white transparent transparent transparent;
         }
 
-         #hover-image {
-            position: absolute;
-            bottom: 50px;  /* Adjust based on where you want the image */
-            left: 50%;
-            width: 300px;
+        #stars_bot-image {
+            position: fixed;
+            top: 0;
+            left: 65%;
+            width: clamp(160px, 13vw, 220px);
             height: auto;
-            display: none;  /* Initially hidden */
+            transform: rotate(180deg);
+            z-index: 6;
         }
 
-        /* Show the image when hovering over the speech bubble */
-        .speech-bubble:hover + #hover-image {
-            display: block;  /* Show the image */
+        #star2-image {
+            position: fixed;
+            top: 10%;
+            right: 2%;
+            width: clamp(120px, 9vw, 170px);
+            height: auto;
+            z-index: 6;
         }
 
-        
+        @keyframes walk-right {
+            0% {
+                left: 7vw;
+            }
+            50% {
+                left: 74vw;
+            }
+            100% {
+                left: 7vw;
+            }
+        }
 
+        @keyframes walk-right-star {
+            0% {
+                left: 7vw;
+            }
+            50% {
+                left: 74vw;
+            }
+            100% {
+                left: 7vw;
+            }
+        }
+
+        @keyframes note-right {
+            0% {
+                left: 14vw;
+            }
+            50% {
+                left: 51vw;
+            }
+            100% {
+                left: 14vw;
+            }
+        }
+
+        @media (max-width: 700px) {
+            :root {
+                --bridge-height: 52vh;
+                --character-width: clamp(86px, 17vw, 118px);
+                --castle-height: clamp(330px, 51vh, 460px);
+            }
+
+            #sun {
+                top: 0.5%;
+                left: 7%;
+                width: 128px;
+            }
+
+            #tree-image {
+                width: 120px;
+            }
+
+            #castle-link {
+                right: 24vw;
+                bottom: var(--bridge-top);
+                transform: translateY(2.4vh);
+            }
+
+            .speech-bubble {
+                right: 26vw;
+                bottom: calc(var(--bridge-top) + 37vh);
+            }
+
+            #stars_bot-image {
+                top: 0;
+                left: 68%;
+                width: 160px;
+            }
+
+            #star2-image {
+                top: 7%;
+                right: -3%;
+                width: 150px;
+            }
+
+            @keyframes walk-right {
+                0% {
+                    left: 28vw;
+                }
+                50% {
+                    left: 28vw;
+                }
+                100% {
+                    left: 28vw;
+                }
+            }
+
+            @keyframes walk-right-star {
+                0% {
+                    left: 30vw;
+                }
+                50% {
+                    left: 30vw;
+                }
+                100% {
+                    left: 30vw;
+                }
+            }
+
+            @keyframes note-right {
+                0% {
+                    left: 39vw;
+                }
+                50% {
+                    left: 39vw;
+                }
+                100% {
+                    left: 39vw;
+                }
+            }
+        }
     </style>
+</head>
+<body>
     <div id="panorama"></div>
-    
-    <!-- Anchor tag to make the sun clickable and link to home.html -->
-    <a href="index.html">
+
+    <a href="index.html" aria-label="Go back home">
         <div id="sun"></div>
     </a>
 
-
-    <!-- Bridge image at the bottom -->
-    <div id="bridge-adder"></div>
     <div id="bridge"></div>
 
-    <img id="corner-image" src="assets/images/lilb.png" alt="Small image">
-    <img id="notes-image" src="assets/images/notes.png" alt="Small image">
-    <img id="tree-image" src="assets/images/tree.png" alt="tree image">
-    <img id="castle-image" src="assets/images/castle.png" alt="castle image">
-    <img id="stars_bot-image" src="assets/images/star2.png" alt="stars image">
-    <img id="star2-image" src="assets/images/star2.png" alt="stars top image">
-    <img id="mystar-image" src="assets/images/star2.png" alt="stars top image">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js"></script>
+    <img id="tree-image" src="assets/images/tree.png" alt="">
+    <img id="corner-image" src="assets/images/lilb.png" alt="Walking character">
+    <img id="notes-image" src="assets/images/notes.png" alt="">
+    <img id="stars_bot-image" src="assets/images/star2.png" alt="">
+    <img id="star2-image" src="assets/images/star2.png" alt="">
+    <img id="mystar-image" src="assets/images/star2.png" alt="">
+
+    <a id="castle-link" href="castle.html" aria-label="Open castle page">
+        <img id="castle-image" src="assets/images/castle.png" alt="castle">
+    </a>
+    <div class="speech-bubble">**</div>
+
     <script src="assets/vr.js"></script>
-    
-
-<!-- Anchor tag to make the castle clickable and link to castle.html -->
-<a href="castle.html">
-    <img id="castle-image" src="assets/images/castle.png" alt="castle image">
-</a>
-<div class="speech-bubble">
-    **
-</div>
-
-
-<script>
-    // Optionally, you can add an event listener for the click if needed
-    document.getElementById('castle').addEventListener('click', function() {
-        console.log("Castle clicked!");
-    });
-</script>
 </body>
 </html>

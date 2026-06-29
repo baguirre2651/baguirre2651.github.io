@@ -1,123 +1,70 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Bryan Aguirre</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="assets/home.css">
+</head>
+<body>
+  <nav id="q1-navbar" aria-label="Main navigation">
+    <a href="index.html" class="q1-navitem">Home</a>
+    <a href="#about" class="q1-navitem">About</a>
+    <a href="#work" class="q1-navitem">Work</a>
+    <a href="#contact" class="q1-navitem">Contact</a>
+  </nav>
 
-<html>
-
-  <head>
-    <meta charset="UTF-8">
-    <title>My Website</title>
-    <link rel="stylesheet" type="text/css" href="assets/home.css">
-    <link rel="stylesheet" type="text/css" href="assets/script.js">
-    <link rel="stylesheet" type="text/css" href="assets/home.js">
-
-    <header>
+  <main>
+    <section id="about" class="page-section about-section">
+      <div class="about-copy">
         <h1>About</h1>
-        <p>My Name is Bryan Aguirre I'm from Long Beach, CA and I studied Data Science and Economics at the University of California, Berkeley. </p>
-        <p> Apart from coding, some of my hobbies are making comedy skits on social media via Instagram, Twitter, Linkedin
-            and Tiktok. </p>
-        <p> I also like to draw doodles and love to shoot short films on my $10 digital camera.</p>
-      </header>
-      <body>
+        <p>My name is Bryan Aguirre. I'm from Long Beach, CA, and I studied Data Science and Economics at the University of California, Berkeley.</p>
+        <p>Apart from coding, some of my hobbies are making comedy skits on social media via Instagram, Twitter, LinkedIn, and TikTok.</p>
+        <p>I also like to draw doodles and love to shoot short films on my $10 digital camera.</p>
+      </div>
+      <div class="about-photo">
+        <img class="me" src="assets/images/bryan.png" alt="Bryan Aguirre">
+      </div>
+    </section>
 
+    <section id="work" class="page-section work-section">
+      <h2>Work</h2>
+      <div id="column-container">
+        <a class="column" href="poo.html">
+          <span>Videos</span>
+        </a>
+        <a class="column" href="poo.html">
+          <span>Art</span>
+        </a>
+        <a class="column" href="https://github.com/baguirre2651">
+          <span>Coding Projects</span>
+        </a>
+      </div>
+    </section>
 
-      <footer>
-        <div class="rectangle"></div>
-      </footer>
-      <div class="rectangled"></div>
-  
-      <div class="container"></div>
-      <div class="triangle"></div>
-
-
-      <nav>
-        <div id="q1-navbar">
-          <span class="q1-navitem">Home</span>
-          <span class="q1-navitem">Work</span>
-          <span class="q1-navitem">About</span>
-          <span class="q1-navitem">Contact</span> 
-        </div>
-        <div class="q1-section"></div>
-        <div class="q1-section"></div>
-        <div class="q1-section"></div>
-        <div class="q1-section"></div>
-      </nav>
-
-      <nav>
-        <div id="q1-navbar">
-            <a href="index.html" class="q1-navitem">Home</a>
-            <a href="#home.html" class="q1-navitem">About</a>
-            <a href="#home.html" class="q1-navitem">Work</a>
-            <a href="#home.html" class="q1-navitem">Contact</a> 
-          </div>
-
-
-
-        <div id = "section1">
-            <h1></h1>
-        </div>
-
-        <div id="section2">
-          <h2>Work</h2>
-          <div id="column-container">
-            <div class="column">
-              <a href="poo.html">
-                <p>Videos</p>
-              </a>
-            </div>
-            <div class="column">
-              <a href="poo.html">
-                <p>Art</p>
-              </a>
-            </div>
-            <div class="column">
-              <a href="https://github.com/baguirre2651">
-                <p> Coding Projects</p> 
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="rectangled"></div>
-        <div class="triangled"></div>
-        <div class="tango"></div>
-        <div class="triangly"></div>
-        <div class="rectangly"></div>
-     
-    
-              
-
-
-        </div>
-
-        <div id="section3">
-            <h1>Contact</h1>
-            <div id="contact-icons">
-              
-              <a href="https://www.instagram.com/b.ryanaguirre/"><img class="contact-icon" src="assets/images/instagram.png" alt="instagram"></a>
-              <a href="https://twitter.com/b_ryanaguirre"><img class="contact-icon" src="assets/images/twitter.png" alt="twitter"></a>
-              <a href="https://www.youtube.com/watch?v=E5JPbpzZH-4&ab_channel=NOID"><img class="contact-icon" src="assets/images/kik.png" alt="kik"></a>
-              <a href="https://www.linkedin.com/in/bryan-aguirre/"><img class="contact-icon" src="assets/images/link.png" alt="linkedin"></a>
-              <a href="https://github.com/baguirre2651"><img class="contact-icon" src="assets/images/github.png" alt="github"></a>
-
-            </div>
-            </div>
-          </div>
-
-        <img class="me" src="assets/images/bryan.png" alt="bryan">
-      </nav>
-
-      
-
-
-
-      <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-          anchor.addEventListener("click", function(e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute("href")).scrollIntoView({
-              behavior: "smooth"
-            });
-          });
-        });
-      </script>
-    </body>
-    </html>
-  
+    <section id="contact" class="page-section contact-section">
+      <h2>Contact</h2>
+      <div id="contact-icons">
+        <a href="https://www.instagram.com/b.ryanaguirre/" aria-label="Instagram">
+          <img class="contact-icon" src="assets/images/instagram.png" alt="">
+        </a>
+        <a href="https://twitter.com/b_ryanaguirre" aria-label="Twitter">
+          <img class="contact-icon" src="assets/images/twitter.png" alt="">
+        </a>
+        <a href="https://www.youtube.com/watch?v=E5JPbpzZH-4&ab_channel=NOID" aria-label="YouTube">
+          <img class="contact-icon" src="assets/images/kik.png" alt="">
+        </a>
+        <a href="https://www.linkedin.com/in/bryan-aguirre/" aria-label="LinkedIn">
+          <img class="contact-icon" src="assets/images/link.png" alt="">
+        </a>
+        <a href="https://github.com/baguirre2651" aria-label="GitHub">
+          <img class="contact-icon" src="assets/images/github.png" alt="">
+        </a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

@@ -30,7 +30,11 @@ document.addEventListener('click', togglePlay);
 
 
 
-document.getElementById('castle').addEventListener('click', function() {
+const castleLink = document.getElementById('castle-link');
+
+if (castleLink) {
+  castleLink.addEventListener('click', function() {
     console.log("Castle clicked!");
   });
+}
   
