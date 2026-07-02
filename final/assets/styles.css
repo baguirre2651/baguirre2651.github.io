@@ -460,9 +460,31 @@ body {
 }
 
 @media (max-width: 700px) {
-  body {
-    height: 100vh;
+  html {
+    width: 100vw;
+    min-height: 100svh;
     overflow: hidden;
+    background-color: #ED6511;
+  }
+
+  body {
+    width: 100vw;
+    height: 100svh;
+    min-height: 100svh;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #q1-navbar {
+    width: 100vw;
+  }
+
+  .container {
+    left: 0;
+    right: 0;
+    width: 100vw;
+    height: 50svh;
   }
 
   header {
@@ -524,6 +546,12 @@ body {
     object-position: center bottom;
   }
 
+  #shapes-image {
+    left: 0;
+    width: 100vw;
+    height: 80svh;
+  }
+
   #flowers-image,
   #flowers-image2 {
     width: 58%;
@@ -548,10 +576,13 @@ body {
   }
 
   #image2 {
-    width: 78%;
-    height: 23%;
-    top: 68%;
-    left: -12%;
+    top: auto;
+    right: auto;
+    bottom: -1px;
+    left: 50%;
+    width: 122vw;
+    height: 24svh;
+    transform: translateX(-50%);
   }
 }
 
