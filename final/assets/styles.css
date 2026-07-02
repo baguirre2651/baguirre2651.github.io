@@ -525,17 +525,17 @@ body {
   }
 
   #walk {
-    width: 44%;
+    width: 64vw;
     height: auto;
-    top: 64%;
-    left: 54%;
+    top: 63%;
+    left: 53%;
   }
 
   #figure {
-    width: 8%;
+    width: 10vw;
     height: auto;
     top: 72%;
-    left: 55%;
+    left: 53%;
   }
 
   #flowers-image,
@@ -554,25 +554,26 @@ body {
 
   #flowers-image,
   #flowers-image2 {
-    width: 58%;
-    height: 54%;
+    width: 68vw;
+    height: 54svh;
   }
 
   #flowers-image {
-    top: 76%;
-    left: 27%;
+    top: 77%;
+    left: 26%;
   }
 
   #flowers-image2 {
-    top: 76%;
-    left: 75%;
+    top: 77%;
+    left: 78%;
   }
 
   #floimage {
-    top: 62%;
-    left: 45%;
-    width: 74%;
-    height: 28%;
+    top: 63%;
+    left: 50%;
+    width: 115vw;
+    height: 30svh;
+    transform: translateX(-50%);
   }
 
   #image2 {
