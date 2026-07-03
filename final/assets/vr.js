@@ -10,13 +10,12 @@ function playAudio() {
     });
 }
 
-// Play audio when the page loads
-window.onload = function() {
-    playAudio(); // Attempt to play audio on page load
-};
-
 // Function to toggle play and pause
 function togglePlay() {
+    if (!audio) {
+        return;
+    }
+
     if (isPlaying) {
         audio.pause();  // Pause the song
         isPlaying = false;

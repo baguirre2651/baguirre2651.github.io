@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>360 Webpage</title>
     <link rel="stylesheet" type="text/css" href="assets/vr.css">
-    <audio id="myAudio" src="assets/music/Fairy Fountain.mp3" preload="none"></audio>
     <style>
         :root {
             --bridge-height: 51.5vh;
@@ -18,6 +17,7 @@
         body {
             width: 100%;
             height: 100%;
+            min-height: 100vh;
             margin: 0;
             padding: 0;
             background-color: #191970;
@@ -204,9 +204,22 @@
 
         @media (max-width: 700px) {
             :root {
-                --bridge-height: 52vh;
+                --bridge-height: 52svh;
                 --character-width: clamp(86px, 17vw, 118px);
-                --castle-height: clamp(330px, 51vh, 460px);
+                --castle-height: clamp(300px, 49svh, 440px);
+            }
+
+            html,
+            body {
+                width: 100vw;
+                height: 100svh;
+                min-height: 100svh;
+                overflow: hidden;
+            }
+
+            #panorama {
+                width: 100vw;
+                height: 100svh;
             }
 
             #sun {
@@ -281,6 +294,7 @@
     </style>
 </head>
 <body>
+    <audio id="myAudio" src="assets/music/Fairy Fountain.mp3" preload="none"></audio>
     <div id="panorama"></div>
 
     <a href="index.html" aria-label="Go back home">
