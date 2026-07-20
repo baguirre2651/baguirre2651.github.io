@@ -1,0 +1,627 @@
+html {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0;
+  background-color: #ED6511;
+  position: absolute;
+  overflow: hidden; /* Prevent scrolling */
+  max-width: 100vw;
+}
+
+
+  /* Welcome To My Website */
+
+  header {
+    position: absolute;
+    right: 150px; /* Adjust right property */
+    top: 36%; /* Adjust top property */
+    transform: translateY(-50%); /* Vertically center the header */
+    font-family: 'Georgia';
+    font-size: 30px;
+    color: #FFFFFF;
+    text-align: right;
+    z-index: 9999;
+  }
+  
+  h1 {
+    margin: 0;
+    padding: 0;
+  }
+  h2 {
+    margin: 0;
+    padding: 10;
+  }
+  
+  h1 {
+    font-size: 35px;
+    font-weight: bold;
+  }
+  
+  h2 {
+    font-size: 35px;
+  }
+  
+
+  .center-text {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-family: "Ariel", Times, serif;
+    font-size: 12px;
+    color: wheat ;
+    z-index: 100000;
+  }
+
+
+  /* grass */ 
+/* footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 6em;
+  } */
+
+
+  /* .rectangle {
+      width: 100%;
+      height: 130px;
+      position: absolute;
+      bottom: -50;
+      background-color: #E9D846;
+      border-radius: 60% 50% 0 0;
+      z-index: 999; 
+    } */
+
+    #sun {
+      position: absolute;
+      bottom: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: auto;
+      opacity: 0; /* Initially hidden */
+      transition: opacity 1s ease-in-out;
+    }
+    
+    .container {
+      background-color: #005ADC;
+      width: 100%;
+      height: 50%;
+      position: absolute;
+      top: 0;
+      animation: color-bounce 50s infinite alternate; /* 100 seconds total duration */
+      pointer-events: none;
+    }
+    
+    
+@keyframes color-bounce {
+  0% {
+    background-color: #005ADC; /* Initial blue */
+  }
+  60% {
+    background-color: #005ADC; /* Stay at initial blue longer */
+  }
+  70% {
+    background-color: #99afcf; /* Lighter blue transition */
+  }
+  80% {
+    background-color: #ffb477; /* Orange-like transition */
+  }
+  90% {
+    background-color: black; /* Final transition to black */
+  }
+  100% {
+    background-color: #005ADC; /* Back to initial blue */
+  }
+}
+    
+  
+    
+    /* .triangle {
+  width: 470vw;
+  height: 170vh;
+  bottom:11%;
+  position: fixed;
+  left: -3vw;
+  background-color: hsl(39, 95%, 78%);
+  clip-path: polygon(0 100%, 100% 0, 105% 100%); }
+
+ 
+  */
+
+
+
+
+/* navigation bar top right*/
+body {
+  margin: 0;
+  padding:0;
+  }
+  
+  /* navigation bar top right*/
+  #q1-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99999;
+    width: auto;
+    max-width: 100vw;
+    box-sizing: border-box;
+    padding: 6px 48px 6px 24px;
+    background-color: rgba(32, 40, 59, 0.98);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 6px;
+    font-family: "IBM Plex Sans", Arial, sans-serif;
+  }
+
+
+  .q1-navitem {
+    position: relative;
+    color: white;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    line-height: 1;
+    border-radius: 5px;
+    padding: 5px 8px;
+    transition: background-color 0.25s ease, color 0.25s ease, transform 0.2s ease;
+  }
+
+  .q1-navitem::after {
+    content: "";
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    bottom: 1px;
+    height: 2px;
+    border-radius: 2px;
+    background-color: white;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.25s ease;
+  }
+
+  .q1-navitem:hover,
+  .q1-navitem:focus-visible {
+    background-color: #2856aa;
+    transform: translateY(-1px);
+    outline: none;
+  }
+
+  .q1-navitem:hover::after,
+  .q1-navitem:focus-visible::after {
+    transform: scaleX(1);
+  }
+  
+  
+  .q1-section {
+    margin: 0px;
+    padding: 20px;
+  }
+  
+  .q1-section h2 {
+    margin-top: 0;
+  }
+  
+  .q1-section p {
+    margin-top: 10px;
+    text-align: justify;
+  }
+  
+  /* house */ 
+  .house {
+    position: fixed;
+    z-index: 99999999;
+    bottom: 50%; /* box bottom sits on the sky/ground horizon */
+    left: 50%;
+    /* the source PNG has ~14.5% transparent padding below the house art,
+       so shift down by that fraction of its own height to land the visible
+       house (not the transparent box) on the horizon */
+    transform: translate(-50%, 17%);
+    width: 80px; /* adjust as needed */
+    height: auto;
+    transition: all 1s ease-out; /* add transition property */
+    animation: blink 3s infinite; /* add the blink animation */
+  }
+  
+
+
+
+  #cloud-image {
+    position: absolute;
+    top: 0%;
+    right: 100px; /* Adjust the value to determine how far the animation sways */
+    transform: translateY(-50%);
+    animation: sway-right 1100s ease-in-out infinite;
+    width: 20%;
+    z-index: 9999;
+  }
+  
+  @keyframes sway-right {
+    0% {
+      transform: translateX(0) scaleY(1);
+    }
+    50% {
+      transform: translateX(600px) scaleY(0.95); /* Adjust the value to determine the distance swayed */
+    }
+    100% {
+      transform: translateX(0) scaleY(1);
+    }
+  }
+  
+
+
+  #clock-image {
+    position: absolute;
+    top: 15%;
+    left: 30px;
+    transform: translateY(-50%);
+    width: 8%;
+    z-index: 9999;
+    transition: all 1s ease-out; /* add transition property */
+    cursor: pointer;
+  }
+
+
+  #shapes-image{
+    width: 100%;
+    height: 80%;
+    position: absolute;
+    bottom: 0%;
+    z-index: 9999;
+    
+  }
+
+  #ellipse-image {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 30%;
+    right: 100%;
+    transform: translate(-50%, -50%) rotate(-10deg);
+    z-index: 99999990;
+  }
+
+  /* #ellipse2-image {
+    width: 0%;
+    height: 20%;
+    position: absolute;
+    bottom: 0%;
+    left: 100%;
+    transform: translate(-50%, -50%);
+    z-index: 99999;
+  } 
+
+ 
+
+   */
+  .house:hover {
+    left: 50%;
+    
+    animation-play-state: paused;
+    transform: translate(-10px, 130px) scale(7); /* add hover effect  */
+    animation: none; /* remove animation on hover */
+  }
+/* 
+  .mumu {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  } */
+  
+ 
+
+   .moon {
+    position: absolute;
+    z-index: 9999;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px; 
+    height: auto;
+  }
+
+
+  
+#flowers-image {
+  width: 50%;
+  height: 60%;
+  position: absolute;
+  bottom: 0; /* pinned to the bottom edge of the screen */
+  left: 24%;
+  transform: translateX(-50%);
+  z-index: 1000000;
+}
+
+#flowers-image2 {
+  width: 59%;
+  height: 50%;
+  position: absolute;
+  bottom: 0; /* pinned to the bottom edge of the screen */
+  left: 74%;
+  transform: translateX(-50%);
+  z-index: 1000000;
+}
+  #walk {
+    width: 27%;
+    height: 31.1%;
+    position: absolute;
+    top: 65.5%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    z-index: 1000000;
+  }
+
+
+
+  #figure{
+    width: 4%;
+    height: 22%;
+    position: absolute;
+    top: 72%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    z-index: 1000000000;
+  }
+
+
+@keyframes moveToLeft {
+  0% {
+    left: 54%;
+  }
+  100% {
+    left: 10%; /* Adjust this value to control how far your figure moves to the left */
+  }
+}
+
+@keyframes blink {
+  0%, 100% {
+    visibility: visible;
+  }
+  50% {
+    visibility: hidden;
+  }
+}
+
+  #figure2{
+    width: 5%;
+    height: 8%;
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10000000;
+    animation: moveUp 90s infinite;
+  }
+  
+  @keyframes moveUp{
+    0% {
+      top: 76%;
+    }
+    100% {
+      top: 50%; /* Adjust this value to control how far your figure moves to the left */
+    }
+  }
+
+
+  #floimage{
+    width: 60%;
+    height: 24%;
+    position: absolute;
+    top: 58%;
+    left: 44.5%;
+    z-index: 10001;
+
+  }
+
+  #image2{
+    width: 60%;
+    height: 20%;
+    position: absolute;
+    top: 65%;
+    left: -10%;
+    z-index: 10001;
+
+  }
+
+  #stars_bot-image {
+    position: absolute;
+    top: 10%;
+    right: 65%;
+    width: 200px; /* Adjusted size */
+    height: 90px;
+    transform: rotate(180deg);
+    z-index: 10000;
+}
+
+
+.hidden-section {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0,0,0,0.8);
+  color: white;
+  padding: 30px;
+  border-radius: 10px;
+  z-index: 10000;
+  text-align: center;
+}
+
+.container {
+  z-index: 1;
+  pointer-events: none;
+}
+
+#shapes-image {
+  object-fit: fill;
+}
+
+#flowers-image,
+#flowers-image2,
+#floimage,
+#image2 {
+  object-fit: cover;
+  object-position: center bottom;
+}
+
+#image2 {
+  bottom: -1px;
+}
+
+@media (max-width: 700px) {
+  html {
+    width: 100vw;
+    min-height: 100svh;
+    overflow: hidden;
+    background-color: #ED6511;
+  }
+
+  body {
+    width: 100vw;
+    height: 100svh;
+    min-height: 100svh;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #q1-navbar {
+    width: 100vw;
+  }
+
+  .container {
+    left: 0;
+    right: 0;
+    width: 100vw;
+    height: 50svh;
+  }
+
+  header {
+    right: auto;
+    left: 0;
+    width: 100%;
+    top: 31%;
+    font-size: 22px;
+    text-align: center;
+  }
+
+  h1,
+  h2 {
+    font-size: 26px;
+  }
+
+  header h1 {
+    transform: translateX(0);
+  }
+
+  header h2 {
+    display: block;
+    transform: translateX(27vw);
+    margin-top: 4px;
+  }
+
+  .center-text {
+    top: 35%;
+  }
+
+  .house {
+    width: clamp(52px, 13vw, 72px);
+  }
+
+  .house:hover {
+    transform: translate(-10px, 110px) scale(5.2);
+  }
+
+  #walk {
+    width: 64vw;
+    height: auto;
+    top: 63%;
+    left: 53%;
+  }
+
+  #figure {
+    width: 10vw;
+    height: auto;
+    top: 72%;
+    left: 53%;
+  }
+
+  #flowers-image,
+  #flowers-image2,
+  #floimage,
+  #image2 {
+    object-fit: cover;
+    object-position: center bottom;
+  }
+
+  #shapes-image {
+    left: 0;
+    width: 100vw;
+    height: 80svh;
+  }
+
+  #flowers-image,
+  #flowers-image2 {
+    width: 68vw;
+    height: 54svh;
+  }
+
+  #flowers-image {
+    left: 26%;
+  }
+
+  #flowers-image2 {
+    left: 78%;
+  }
+
+  #floimage {
+    top: 63%;
+    left: 50%;
+    width: 115vw;
+    height: 30svh;
+    transform: translateX(-50%);
+  }
+
+  #image2 {
+    top: auto;
+    right: auto;
+    bottom: -1px;
+    left: 50%;
+    width: 122vw;
+    height: 24svh;
+    transform: translateX(-50%);
+  }
+}
+
+@media (min-width: 1500px) {
+  #walk {
+    width: 25%;
+  }
+
+  #figure {
+    width: 3.6%;
+  }
+
+  #flowers-image {
+    height: 61%;
+  }
+
+  #flowers-image2 {
+    height: 52%;
+  }
+}

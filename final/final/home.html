@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Bryan Aguirre</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="assets/home.css">
+</head>
+<body>
+  <nav id="q1-navbar" aria-label="Main navigation">
+    <a href="index.html" class="q1-navitem">Home</a>
+    <a href="#about" class="q1-navitem">About</a>
+    <a href="#work" class="q1-navitem">Work</a>
+    <a href="#contact" class="q1-navitem">Contact</a>
+  </nav>
+
+  <main>
+    <section id="about" class="page-section about-section">
+      <div class="about-copy reveal">
+        <h1>I'm Bryan Aguirre</h1>
+        <p class="about-role">Data Scientist, Designer, Creative Technologist</p>
+        <p>I'm a Long Beach native and UC Berkeley grad with a Data Science degree and Economics emphasis, now based in New York City. Most recently I was a Data Scientist at Y=X, building predictive models and dashboards for fintech.</p>
+        <p>On the side I'm the founder of In Search Of, a fashion-tech commerce platform and demand-driven reverse marketplace. Bilingual in Spanish and English, usually making short-form videos when I'm not behind a keyboard.</p>
+        <div class="about-tags">
+          <span class="tag">UC Berkeley '24</span>
+          <span class="tag">New York City</span>
+        </div>
+        <div class="about-actions">
+          <a class="icon-badge" href="https://drive.google.com/file/d/1r_iPeOQe8kb904sPMAnmYDSx4s0zsGgs/view" target="_blank" rel="noopener noreferrer" aria-label="Resume">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="8" y1="13" x2="16" y2="13"></line>
+              <line x1="8" y1="17" x2="13" y2="17"></line>
+            </svg>
+          </a>
+          <a class="icon-badge" href="https://www.linkedin.com/in/bryan-aguirre/" aria-label="LinkedIn">
+            <img src="assets/images/link.png" alt="">
+          </a>
+          <a class="icon-badge" href="https://github.com/baguirre2651" aria-label="GitHub">
+            <img src="assets/images/github.png" alt="">
+          </a>
+          <a class="resume-btn" href="#work">
+            <span>My Work</span>
+            <span class="resume-btn-icon">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#262a56" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <polyline points="6 13 12 19 18 13"></polyline>
+              </svg>
+            </span>
+          </a>
+        </div>
+      </div>
+      <div class="about-photo reveal">
+        <div class="photo-frame">
+          <img class="me" src="assets/images/optimized/bryan-home.png" alt="Bryan Aguirre">
+        </div>
+      </div>
+    </section>
+
+    <section id="work" class="page-section work-section">
+      <h2 class="reveal">Work</h2>
+      <div id="column-container">
+        <a class="column reveal" href="poo.html">
+          <span class="column-label">Videos</span>
+        </a>
+        <a class="column reveal" href="poo.html">
+          <span class="column-label">Art</span>
+        </a>
+        <a class="column reveal" href="https://github.com/baguirre2651">
+          <span class="column-label">Coding Projects</span>
+        </a>
+      </div>
+    </section>
+
+    <section id="contact" class="page-section contact-section">
+      <h2 class="reveal">Contact</h2>
+      <div id="contact-icons" class="reveal">
+        <a href="https://www.instagram.com/b.ryanaguirre/" aria-label="Instagram">
+          <img class="contact-icon" src="assets/images/instagram.png" alt="">
+        </a>
+        <a href="https://twitter.com/b_ryanaguirre" aria-label="Twitter">
+          <img class="contact-icon" src="assets/images/twitter.png" alt="">
+        </a>
+        <a href="https://www.youtube.com/watch?v=E5JPbpzZH-4&ab_channel=NOID" aria-label="YouTube">
+          <img class="contact-icon" src="assets/images/kik.png" alt="">
+        </a>
+        <a href="https://www.linkedin.com/in/bryan-aguirre/" aria-label="LinkedIn">
+          <img class="contact-icon" src="assets/images/link.png" alt="">
+        </a>
+        <a href="https://github.com/baguirre2651" aria-label="GitHub">
+          <img class="contact-icon" src="assets/images/github.png" alt="">
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      var revealEls = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) {
+        revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+        return;
+      }
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+      revealEls.forEach(function (el) { observer.observe(el); });
+    })();
+  </script>
+</body>
+</html>
