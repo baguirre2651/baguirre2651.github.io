@@ -92,56 +92,6 @@
         }
     });
 
-    // Typewriter effect for the header: types "Welcome To My", then "Website",
-    // with a blinking caret that follows the active line.
-    window.addEventListener('DOMContentLoaded', () => {
-        const lines = [
-            document.querySelector('header h1'),
-            document.querySelector('header h2')
-        ];
-        if (!lines[0] || !lines[1]) return;
-
-        const texts = lines.map(el => el.textContent);
-
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-        lines.forEach(el => { el.textContent = ''; });
-
-        const caret = document.createElement('span');
-        caret.className = 'type-caret';
-        caret.textContent = '|';
-
-        const typeLine = (i, done) => {
-            const el = lines[i];
-            const text = texts[i];
-            el.appendChild(caret);
-            let pos = 0;
-            const tick = () => {
-                if (pos < text.length) {
-                    const ch = document.createElement('span');
-                    ch.className = 'type-char';
-                    ch.textContent = text[pos];
-                    el.insertBefore(ch, caret);
-                    requestAnimationFrame(() => requestAnimationFrame(() => ch.classList.add('is-typed')));
-                    pos++;
-                    // slight human variance, longer rest after spaces
-                    const delay = 32 + Math.random() * 26 + (text[pos - 1] === ' ' ? 40 : 0);
-                    setTimeout(tick, delay);
-                } else {
-                    done();
-                }
-            };
-            setTimeout(tick, 90);
-        };
-
-        typeLine(0, () => {
-            setTimeout(() => {
-                typeLine(1, () => {
-                    // caret stays and keeps blinking after typing finishes
-                });
-            }, 180);
-        });
-    });
 </script>
 
 
