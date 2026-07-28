@@ -1,13 +1,150 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="refresh" content="0; url=final/index.html">
-  <title>Bryan Aguirre</title>
-  <link rel="canonical" href="final/index.html">
+  <title>My Website</title>
+  <link rel="stylesheet" type="text/css" href="assets/styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    #clock-image {
+      position: absolute;
+      top: 15%;
+      left: 30px;
+      transform: translateY(-50%);
+      width: 8%;
+      z-index: 9999;
+      transition: all 1s ease-out;
+      animation: blink 5s infinite;
+      cursor: pointer; /* Add cursor style to indicate it is clickable */
+    }
+  </style>
 </head>
 <body>
-  <p><a href="final/index.html">Enter site</a></p>
+  <header>
+    <h1>Welcome To My</h1>
+    <h2>Website</h2>
+  </header>
+  <div class="center-text">
+    <p id="hover-text">Hover</p>
+    <p>↓</p>
+  </div>
+
+  <audio id="song" preload="none">
+    <source src="assets/music/flute.mp3" type="audio/mp3">
+</audio>
+
+<!-- No Surprises Song Audio Element -->
+<audio id="no_surprises_song" preload="none">
+    <source src="assets/music/No_Surprises.mp3" type="audio/mp3">
+</audio>
+
+<audio id="aphex_song" preload="none">
+  <source src="assets/music/QKThr.mp3" type="audio/mp3">
+</audio>
+
+
+<script>
+    // Handle click to play or pause flute song
+    window.addEventListener('click', () => {
+        const audioElement = document.getElementById("song");
+        
+        if (audioElement.paused) {
+            audioElement.play();
+        } else {
+            audioElement.pause();
+        }
+    });
+
+    // Handle 'R' keypress to play or pause No Surprises song
+    window.addEventListener('keydown', (event) => {
+        if (event.key === 'r' || event.key === 'R') {
+            const noSurprisesAudio = document.getElementById("no_surprises_song");
+            if (noSurprisesAudio.paused) {
+                noSurprisesAudio.play();
+            } else {
+                noSurprisesAudio.pause();
+            }
+        }
+    });
+
+    // Handle 'Q' keypress to play or pause Aphex Twin song
+    window.addEventListener('keydown', (event) => {
+        if (event.key === 'q' || event.key === 'Q') {
+            const aphexAudio = document.getElementById("aphex_song"); // Fixed typo here
+            if (aphexAudio.paused) {
+                aphexAudio.play();
+            } else {
+                aphexAudio.pause();
+            }
+        }
+    });
+
+    // Swap the "Hover" prompt to "Click" while hovering the house, since hovering just reveals it —
+    // clicking is what actually enters the site.
+    window.addEventListener('DOMContentLoaded', () => {
+        const houseLink = document.getElementById('house-link');
+        const hoverText = document.getElementById('hover-text');
+        if (houseLink && hoverText) {
+            houseLink.addEventListener('mouseenter', () => { hoverText.textContent = 'Click'; });
+            houseLink.addEventListener('mouseleave', () => { hoverText.textContent = 'Hover'; });
+        }
+    });
+
+</script>
+
+
+
+  <nav>
+    <div id="q1-navbar">
+      <a href="index.html" class="q1-navitem">Home</a>
+      <a href="home.html#about" class="q1-navitem">About</a>
+      <a href="home.html#work" class="q1-navitem">Work</a>
+      <a href="home.html#contact" class="q1-navitem">Contact</a>
+    </div>
+  </nav>
+
+  <main>
+    <a href="home.html" id="house-link" aria-label="Enter the site"><img class="house" src="assets/images/house.png" alt="house"></a>
+    <img class="moon" src="assets/images/moon.png" alt="moon">
+    <img src="assets/images/cloud.png" alt="Cloud" id="cloud-image">
+    <a href="vr.html"><img src="assets/images/cock 1.png" alt="clock" id="clock-image"></a>
+    <img src="assets/images/optimized/p3-home.png" alt="Group 3 Image" id="shapes-image">
+    <img src="assets/images/optimized/flowers-home.png" alt="Group 3 Image" id="flowers-image">
+    <img src="assets/images/optimized/flowers-home.png" alt="Group 3 Image" id="flowers-image2">
+    <img src="assets/images/walk 1.png" alt="Group 3 Image" id="walk">
+    <img src="assets/images/walkman.gif" alt="Group 3 Image" id="figure">
+    <img src="assets/images/optimized/flowers-home.png" alt="Group 3 Image" id="floimage">
+    <img src="assets/images/optimized/image-home.png" alt="Group 3 Image" id="image2">
+    <img id="stars_bot-image" src="assets/images/star2.png" alt="stars image">
+    
+
+
+    <!-- New hidden sections -->
+
+
+  </main>
+  
+
+  <div class="container">
+    <img src="assets/images/sun.png" alt="Sun Image" id="sun">
+  </div>
+  
+
+  <footer>  
+    <div class="rectangle"></div>
+  </footer>
+
+  <div class="container"></div>
+
+  <div class="triangle"></div>
+
+
+  
+
+  <script src="assets/script.js"></script>
+
+
 </body>
 </html>
