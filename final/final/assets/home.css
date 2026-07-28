@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&display=swap");
 
 :root {
   --white: #ffffff;
@@ -21,7 +22,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 84px;
+  scroll-padding-top: 64px;
 }
 
 body {
@@ -113,7 +114,7 @@ p {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 72px;
+  height: 52px;
   padding: 0 var(--pad);
   background: rgba(6, 24, 49, 0.96);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -190,7 +191,7 @@ section {
   gap: clamp(2rem, 5vw, 4rem);
   align-items: center;
   min-height: 74vh;
-  padding-top: 96px;
+  padding-top: 76px;
   background: var(--white);
   border-bottom: 1px solid var(--line);
 }
@@ -227,9 +228,9 @@ section {
   display: inline-flex;
   align-items: center;
   min-height: 34px;
-  padding: 0.45rem 0.75rem;
+  padding: 0.45rem 0.85rem;
   border: 1px solid var(--line);
-  border-radius: 6px;
+  border-radius: 999px;
   background: var(--white);
   color: var(--navy-2);
   font-size: 0.9rem;
@@ -244,8 +245,14 @@ section {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 0.9rem;
-  margin-top: 1.15rem;
+  gap: 1.1rem;
+  margin-top: 1.5rem;
+}
+
+.hero-actions__divider {
+  width: 1px;
+  height: 30px;
+  background: var(--line);
 }
 
 .hero-socials {
@@ -301,10 +308,9 @@ section {
 
 .hero__image {
   width: 100%;
-  max-height: 460px;
-  aspect-ratio: 4 / 4.6;
-  object-fit: cover;
-  object-position: center;
+  height: auto;
+  max-height: 480px;
+  object-fit: contain;
   border: 1px solid var(--line);
   border-radius: 12px;
   box-shadow: 0 18px 45px rgba(6, 24, 49, 0.1);
@@ -364,7 +370,10 @@ section {
 
 .section-title h2 {
   margin: 0;
+  font-family: "Geist", system-ui, sans-serif;
   font-size: clamp(2rem, 3.2vw, 3.2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 .section-title h2 span {
@@ -652,9 +661,42 @@ section {
   font-weight: 800;
 }
 
+.timeline-row p a {
+  color: var(--blue);
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.timeline-row p a:hover {
+  color: var(--navy);
+}
+
 .timeline-row p:last-child {
   margin-bottom: 0;
   font-size: 0.98rem;
+}
+
+.timeline-media {
+  margin: 1.1rem 0 0;
+}
+
+.timeline-video {
+  display: block;
+  width: 100%;
+  max-width: 620px;
+  aspect-ratio: 1440 / 713;
+  background: #000;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 0 16px 40px rgba(6, 24, 49, 0.12);
+}
+
+.timeline-media figcaption {
+  margin-top: 0.55rem;
+  max-width: 620px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  opacity: 0.72;
 }
 
 .education-card {
@@ -664,10 +706,10 @@ section {
   align-items: center;
   max-width: var(--max);
   margin: 0 auto;
-  padding: 1.35rem;
+  padding: 1.5rem;
   background: var(--white);
   border: 1px solid var(--line);
-  border-radius: 10px;
+  border-radius: 16px;
   transition:
     transform 200ms ease,
     box-shadow 200ms ease;
@@ -694,6 +736,157 @@ section {
 .education-card__coursework {
   margin-bottom: 0;
   font-size: 0.96rem;
+}
+
+/* Subtle inline text link (e.g. "All projects on GitHub") */
+.section-heading__aside {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6rem;
+}
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--blue);
+  font-family: "Poppins", system-ui, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+.text-link span {
+  transition: transform 180ms ease;
+}
+
+.text-link:hover {
+  color: var(--navy);
+}
+
+.text-link:hover span {
+  transform: translate(2px, -2px);
+}
+
+/* Vlogs — three evenly centered posters. */
+.films {
+  background: var(--white);
+}
+
+.film-rail {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+  max-width: var(--max);
+  margin: 0 auto;
+}
+
+.film-slide {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 14px;
+  background: var(--navy);
+  box-shadow: 0 12px 30px rgba(6, 24, 49, 0.1);
+  transition: transform 260ms ease, box-shadow 260ms ease;
+}
+
+.film-slide__shine {
+  position: absolute;
+  top: 0;
+  left: -75%;
+  z-index: 2;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+  transform: skewX(-18deg);
+  pointer-events: none;
+}
+
+.film-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 600ms ease;
+}
+
+.film-slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 45%, rgba(6, 24, 49, 0.72));
+}
+
+.film-slide:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 44px rgba(6, 24, 49, 0.2);
+}
+
+.film-slide:hover img {
+  transform: scale(1.06);
+}
+
+.film-slide__title {
+  position: absolute;
+  z-index: 1;
+  left: 1rem;
+  bottom: 0.85rem;
+  color: var(--white);
+  font-family: "Poppins", system-ui, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.film-slide__meta {
+  position: absolute;
+  z-index: 1;
+  left: 1rem;
+  bottom: 0.55rem;
+  color: rgba(255, 255, 255, 0.72);
+  font-family: "Poppins", system-ui, sans-serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+
+.film-slide:hover .film-slide__title {
+  bottom: 1.6rem;
+}
+
+.film-slide:hover .film-slide__meta {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.film-rail__footer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: var(--max);
+  margin: 0.4rem auto 0;
+}
+
+.film-rail__hint {
+  color: var(--muted);
+  font-family: "Poppins", system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  opacity: 0.55;
+}
+
+@media (max-width: 720px) {
+  .film-rail {
+    grid-template-columns: 1fr;
+    max-width: 360px;
+  }
 }
 
 .contact {
@@ -845,6 +1038,212 @@ section {
   }
 }
 
+/* ------------------------------------------------------------------ */
+/* Liquid glass + shine                                                 */
+/* ------------------------------------------------------------------ */
+
+/* Clean white hero — no background gradient. */
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Light-sweep shine across the solid buttons. */
+.button--dark,
+.button--light,
+.hero-about-button {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.button--dark::after,
+.button--light::after,
+.hero-about-button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -130%;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  transform: skewX(-18deg);
+  pointer-events: none;
+}
+
+.button--dark:hover::after,
+.button--light:hover::after,
+.hero-about-button:hover::after {
+  animation: btn-shine 0.85s ease;
+}
+
+.hero-about-button {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.32),
+    0 10px 24px rgba(37, 6, 173, 0.24);
+}
+
+@keyframes btn-shine {
+  from { left: -130%; }
+  to { left: 150%; }
+}
+
+/* ------------------------------------------------------------------ */
+/* GSAP motion layer                                                    */
+/* Additive only. The IntersectionObserver + .reveal system still owns  */
+/* every section's entrance, so content is never hidden by GSAP. This   */
+/* layer just adds the hero masthead, progress rail, timeline spine,    */
+/* and magnetic/parallax flourishes on top.                             */
+/* ------------------------------------------------------------------ */
+
+.gsap-active .hero__image {
+  will-change: transform;
+}
+
+/* Scroll companion path — hidden; it now only drives the confetti origin. */
+.scroll-buddy {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 12;
+  width: 56px;
+  height: 56px;
+  pointer-events: none;
+  will-change: transform;
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Confetti flung out by the companion while scrolling. */
+.confetti-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 11;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.confetti-bit {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 9px;
+  height: 9px;
+  border-radius: 2px;
+  will-change: transform, opacity;
+}
+
+.scroll-buddy svg {
+  display: block;
+  overflow: visible;
+  filter: drop-shadow(0 4px 10px rgba(21, 93, 252, 0.35));
+}
+
+.scroll-buddy .sb-line {
+  stroke: #155dfc;
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.scroll-buddy .sb-ball {
+  fill: #2506ad;
+}
+
+.scroll-buddy .sb-tip {
+  fill: #05d9ff;
+}
+
+@media (max-width: 760px) {
+  .scroll-buddy,
+  .confetti-layer {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-buddy,
+  .confetti-layer {
+    display: none;
+  }
+}
+
+/* GSAP owns the Selected Work row hover motion for smoother easing. */
+.gsap-active .work-row {
+  transition: background-color 220ms ease;
+}
+
+.gsap-active .work-row:hover {
+  padding-left: 0;
+}
+
+.gsap-active .work-row__arrow {
+  transition: none;
+}
+
+/* Masked, line-by-line word reveal for the hero headline. */
+.word-mask {
+  display: inline-block;
+  overflow: hidden;
+  padding: 0.08em 0;
+  margin: -0.08em 0;
+  vertical-align: top;
+}
+
+.word-inner {
+  display: inline-block;
+  will-change: transform;
+}
+
+/* Thin precision rail that tracks scroll depth. */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 30;
+  width: 100%;
+  height: 3px;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  background: linear-gradient(90deg, #05d9ff, var(--blue) 55%, #2506ad);
+  pointer-events: none;
+}
+
+/* Self-drawing spine for the experience timeline. */
+.gsap-active .timeline {
+  padding-left: 28px;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 22px;
+  bottom: 22px;
+  left: 8px;
+  width: 2px;
+  overflow: hidden;
+  background: rgba(21, 93, 252, 0.12);
+  border-radius: 2px;
+}
+
+.timeline-line__fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background: linear-gradient(180deg, #05d9ff, var(--blue) 55%, #2506ad);
+  border-radius: 2px;
+}
+
+@media (max-width: 860px) {
+  .gsap-active .timeline {
+    padding-left: 22px;
+  }
+
+  .timeline-line {
+    left: 6px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -862,6 +1261,11 @@ section {
     opacity: 1;
     transform: none;
   }
+
+  .scroll-progress,
+  .timeline-line {
+    display: none;
+  }
 }
 
 @media (max-width: 860px) {
@@ -871,7 +1275,7 @@ section {
 
   .site-nav {
     position: fixed;
-    top: 78px;
+    top: 58px;
     left: var(--pad);
     right: var(--pad);
     display: grid;
@@ -955,7 +1359,7 @@ section {
   }
 
   .hero {
-    padding-top: 96px;
+    padding-top: 72px;
   }
 
   .hero__image {

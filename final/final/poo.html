@@ -147,10 +147,93 @@
                 gap: 20px;
             }
         }
+
+        /* ---- GSAP motion layer (added when GSAP loads + motion allowed) ---- */
+        .gsap-active #videos {
+            perspective: 1200px;
+        }
+
+        .gsap-active .video-container {
+            transition: none;
+            transform-style: preserve-3d;
+            will-change: transform;
+        }
+
+        /* GSAP owns the hover transform, so drop the CSS scale to avoid a fight. */
+        .gsap-active .video-container:hover {
+            transform: none;
+        }
+
+        .word-mask {
+            display: inline-block;
+            overflow: hidden;
+            padding: 0.06em 0.02em;
+            margin: -0.06em 0;
+            vertical-align: top;
+        }
+
+        .word-inner {
+            display: inline-block;
+            will-change: transform;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .video-container,
+            .video-container img,
+            .q1-navitem,
+            .q1-navitem::after {
+                transition-duration: 0.001ms !important;
+                animation-duration: 0.001ms !important;
+            }
+        }
+
+        /* Back-to-home button (top left) */
+        .back-button {
+            position: fixed;
+            top: 11px;
+            left: 16px;
+            z-index: 1001;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 15px 7px 12px;
+            background: rgba(255, 255, 255, 0.96);
+            color: #202837;
+            border-radius: 999px;
+            font-family: "IBM Plex Sans", Arial, sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            text-decoration: none;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16);
+            transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .back-button:hover,
+        .back-button:focus-visible {
+            background: #2856aa;
+            color: #fff;
+            transform: translateX(-2px);
+            outline: none;
+        }
+
+        .back-button .arrow {
+            font-size: 15px;
+            line-height: 1;
+            transition: transform 0.2s ease;
+        }
+
+        .back-button:hover .arrow {
+            transform: translateX(-2px);
+        }
     </style>
 </head>
 
 <body>
+
+    <a href="home.html" class="back-button" aria-label="Back to home">
+        <span class="arrow" aria-hidden="true">←</span> Back
+    </a>
 
     <nav id="q1-navbar" aria-label="Main navigation">
         <a href="index.html" class="q1-navitem">Home</a>
@@ -162,37 +245,37 @@
     <div id="media">
         <h2>Music Videos</h2>
         <div id="videos">
-            <a href="https://youtu.be/7EWTjf5n6kk" target="_blank">
+            <a href="https://youtu.be/7EWTjf5n6kk" target="_blank" rel="noopener noreferrer">
                 <div class="video-container">
                     <img src="assets/videos/EE.png" alt="Ireland" loading="lazy" decoding="async">
                     <span class="video-title">Ireland</span>
                 </div>
             </a>
-            <a href="https://youtu.be/9G2Gl9u4O2A" target="_blank">
+            <a href="https://youtu.be/9G2Gl9u4O2A" target="_blank" rel="noopener noreferrer">
                 <div class="video-container">
                     <img src="assets/videos/JP.png" alt="Japan" loading="lazy" decoding="async">
                     <span class="video-title">Japan</span>
                 </div>
             </a>
-            <a href="https://www.youtube.com/watch?v=p3Yi4r8Nf08&t=45s&ab_channel=BryanAguirre" target="_blank">
+            <a href="https://www.youtube.com/watch?v=p3Yi4r8Nf08&t=45s&ab_channel=BryanAguirre" target="_blank" rel="noopener noreferrer">
                 <div class="video-container">
                     <img src="assets/videos/newyork.png" alt="New York" loading="lazy" decoding="async">
                     <span class="video-title">New York</span>
                 </div>
             </a>
-            <a href="https://youtu.be/1epCPWyym0s?si=Uq5Zvp5unfvvtzW4" target="_blank">
+            <a href="https://youtu.be/1epCPWyym0s?si=Uq5Zvp5unfvvtzW4" target="_blank" rel="noopener noreferrer">
                 <div class="video-container">
                     <img src="assets/videos/berlin.png" alt="Berlin" loading="lazy" decoding="async">
                     <span class="video-title">Berlin</span>
                 </div>
             </a>
-            <a href="https://www.youtube.com/watch?v=wEVXiJr_Ttc&ab_channel=BryanAguirre" target="_blank">
+            <a href="https://www.youtube.com/watch?v=wEVXiJr_Ttc&ab_channel=BryanAguirre" target="_blank" rel="noopener noreferrer">
                 <div class="video-container">
                     <img src="assets/videos/hawaii.png" alt="Hawaii" loading="lazy" decoding="async">
                     <span class="video-title">Hawaii</span>
                 </div>
             </a>
-            <a href="https://www.youtube.com/watch?v=Kbx1qkkAtu0&ab_channel=BryanAguirre" target="_blank">
+            <a href="https://www.youtube.com/watch?v=Kbx1qkkAtu0&ab_channel=BryanAguirre" target="_blank" rel="noopener noreferrer">
                 <div class="video-container">
                     <img src="assets/videos/spain.png" alt="Spain" loading="lazy" decoding="async">
                     <span class="video-title">Spain</span>
@@ -200,6 +283,118 @@
             </a>
         </div>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        (function () {
+            var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (!window.gsap || !window.ScrollTrigger || reduceMotion) return;
+
+            var tiles = Array.prototype.slice.call(document.querySelectorAll('.video-container'));
+
+            // Guarantees every tile ends up visible no matter what — so the grid
+            // can never be left blank by a mis-timed trigger or a runtime error.
+            function revealAll() {
+                if (window.gsap) {
+                    gsap.set(tiles, { autoAlpha: 1, y: 0, clearProps: 'clipPath' });
+                } else {
+                    tiles.forEach(function (t) { t.style.opacity = ''; t.style.visibility = ''; t.style.transform = ''; t.style.clipPath = ''; });
+                }
+            }
+
+            try {
+                gsap.registerPlugin(ScrollTrigger);
+                document.documentElement.classList.add('gsap-active');
+
+                var fine = window.matchMedia('(pointer: fine)').matches;
+
+                // Masked, word-by-word reveal for the "Music Videos" masthead.
+                var heading = document.querySelector('#media h2');
+                if (heading) {
+                    var tokens = heading.textContent.split(/(\s+)/);
+                    heading.textContent = '';
+                    tokens.forEach(function (tok) {
+                        if (/^\s*$/.test(tok)) {
+                            heading.appendChild(document.createTextNode(tok));
+                            return;
+                        }
+                        var mask = document.createElement('span');
+                        mask.className = 'word-mask';
+                        var inner = document.createElement('span');
+                        inner.className = 'word-inner';
+                        inner.textContent = tok;
+                        mask.appendChild(inner);
+                        heading.appendChild(mask);
+                    });
+                    gsap.from(heading.querySelectorAll('.word-inner'), {
+                        yPercent: 120, duration: 0.9, ease: 'power3.out', stagger: 0.09, delay: 0.15
+                    });
+                }
+
+                // Lookbook stagger: each tile unmasks upward as its row scrolls in.
+                gsap.set(tiles, { autoAlpha: 0, y: 42, clipPath: 'inset(0 0 100% 0)' });
+                ScrollTrigger.batch(tiles, {
+                    start: 'top 90%',
+                    onEnter: function (batch) {
+                        gsap.to(batch, {
+                            autoAlpha: 1, y: 0, clipPath: 'inset(0 0 0% 0)',
+                            duration: 0.9, ease: 'power3.out',
+                            stagger: { each: 0.12, grid: 'auto', from: 'start' }
+                        });
+                    }
+                });
+
+                // Ken-Burns parallax: the framed image drifts within each tile.
+                tiles.forEach(function (tile) {
+                    var img = tile.querySelector('img');
+                    if (!img) return;
+                    gsap.fromTo(img,
+                        { yPercent: -6, scale: 1.12 },
+                        {
+                            yPercent: 6, ease: 'none',
+                            scrollTrigger: { trigger: tile, start: 'top bottom', end: 'bottom top', scrub: true }
+                        }
+                    );
+                });
+
+                // Playful cursor-tilt on each tile (fine pointers only).
+                if (fine) {
+                    tiles.forEach(function (tile) {
+                        tile.addEventListener('mousemove', function (e) {
+                            var r = tile.getBoundingClientRect();
+                            var px = (e.clientX - r.left) / r.width - 0.5;
+                            var py = (e.clientY - r.top) / r.height - 0.5;
+                            gsap.to(tile, {
+                                rotateY: px * 8, rotateX: -py * 8, scale: 1.03,
+                                transformPerspective: 800, transformOrigin: 'center',
+                                duration: 0.4, ease: 'power2.out'
+                            });
+                        });
+                        tile.addEventListener('mouseleave', function () {
+                            gsap.to(tile, { rotateX: 0, rotateY: 0, scale: 1, duration: 0.6, ease: 'power3.out' });
+                        });
+                    });
+                }
+
+                // Recalculate once fonts/images settle so triggers fire correctly.
+                window.addEventListener('load', function () { ScrollTrigger.refresh(); });
+                setTimeout(function () { ScrollTrigger.refresh(); }, 600);
+
+                // Failsafe: if any tile is somehow still hidden later, show it.
+                setTimeout(function () {
+                    tiles.forEach(function (tile) {
+                        if (gsap.getProperty(tile, 'opacity') < 1) {
+                            gsap.to(tile, { autoAlpha: 1, y: 0, clipPath: 'inset(0 0 0% 0)', duration: 0.5 });
+                        }
+                    });
+                }, 2600);
+            } catch (err) {
+                if (window.console) { console.warn('Motion layer disabled:', err); }
+                revealAll();
+            }
+        })();
+    </script>
 
 </body>
 
