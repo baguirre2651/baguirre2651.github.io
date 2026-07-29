@@ -733,6 +733,12 @@ section {
   color: #061831;
 }
 
+/* With the hill present, drop the redundant back-to-top affordances. */
+.gsap-active .scroll-top,
+.gsap-active .site-footer a {
+  display: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .btt {
     display: none;
