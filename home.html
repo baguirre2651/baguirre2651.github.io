@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
-  <link rel="stylesheet" type="text/css" href="assets/home.css?v=14">
+  <link rel="stylesheet" type="text/css" href="assets/home.css?v=16">
 </head>
 <body>
   <header class="site-header">
@@ -103,6 +103,9 @@
           <time>2025 — Present</time>
           <div>
             <h3>Founder, Full Stack Developer, Designer</h3>
+            <div class="timeline-row__tools">
+              <span>Next.js</span><span>React</span><span>TypeScript</span><span>Node.js</span><span>Firebase</span><span>Python</span><span>Figma</span>
+            </div>
             <p class="timeline-row__company">In Search Of / New York, NY</p>
             <p>A demand-driven reverse marketplace where buyers post what they want and sellers come to them. Built the product around search aggregation, AI-assisted item authentication, valuation signals, live auction tracking, and auto-bid workflows. <a href="https://www.iso-us.com" target="_blank" rel="noopener noreferrer">iso-us.com&nbsp;↗</a></p>
             <figure class="timeline-media">
@@ -117,6 +120,9 @@
           <time>2026 — Present</time>
           <div>
             <h3>Product Designer</h3>
+            <div class="timeline-row__tools">
+              <span>Figma</span><span>SwiftUI</span><span>Firebase</span><span>TestFlight</span><span>Framer</span>
+            </div>
             <p class="timeline-row__company">Happin / New York, NY</p>
             <p>Designed and shipped onboarding and planning features for a privacy-first social coordination app for concerts, conferences, and travel — Apple/Google sign-in, location controls, connected calendars, and a calendar-first Plans page that surfaced upcoming overlaps between friends. Revamped the website and user experience, refined the product's visual system, and ran testing through TestFlight.</p>
             <figure class="timeline-media">
@@ -131,6 +137,9 @@
           <time>2025 - 2026</time>
           <div>
             <h3>Junior Data Scientist</h3>
+            <div class="timeline-row__tools">
+              <span>Python</span><span>SQL</span><span>scikit-learn</span><span>Airflow</span><span>Snowflake</span><span>Tableau</span>
+            </div>
             <p class="timeline-row__company">Y Equals X / Los Angeles, CA</p>
             <p>Built predictive models, dashboards, validation workflows, and data pipelines that translated complex risk probabilities into decisions stakeholders could act on.</p>
           </div>
@@ -139,6 +148,9 @@
           <time>Summer 2024</time>
           <div>
             <h3>Data Analyst Fellow</h3>
+            <div class="timeline-row__tools">
+              <span>Python</span><span>R</span><span>pandas</span><span>SQL</span><span>A/B Testing</span>
+            </div>
             <p class="timeline-row__company">UCLA Engineering / Los Angeles, CA</p>
             <p>Designed management pipelines and regression models, simplified ML concepts for stakeholders, and ran A/B tests that improved model accuracy and precision.</p>
           </div>
@@ -147,6 +159,9 @@
           <time>Summer 2023</time>
           <div>
             <h3>Data Analyst Intern</h3>
+            <div class="timeline-row__tools">
+              <span>Python</span><span>SQL</span><span>NumPy</span><span>ETL</span><span>Matplotlib</span>
+            </div>
             <p class="timeline-row__company">SA Photonics / CACI / San Jose, CA</p>
             <p>Processed satellite datasets, identified outliers, evaluated regression models, and helped improve ETL workflows for a cross-functional team.</p>
           </div>
@@ -155,6 +170,9 @@
           <time>Spring 2023</time>
           <div>
             <h3>Data Contractor</h3>
+            <div class="timeline-row__tools">
+              <span>Python</span><span>SQL</span><span>pandas</span><span>Data Labeling</span>
+            </div>
             <p class="timeline-row__company">Scale AI / Outlier / San Francisco, CA</p>
             <p>Optimized data workflows and turned noisy regression analysis into strategic narratives for operational teams.</p>
           </div>
@@ -466,6 +484,25 @@
             height: '100%', ease: 'none',
             scrollTrigger: { trigger: timeline, start: 'top 72%', end: 'bottom 58%', scrub: 0.4 }
           });
+        }
+
+        // Selected Work: domino reveal — rows tip in one after another with an
+        // accelerating stagger, so the last few land together. Safe fallback:
+        // CSS keeps rows visible, and a timeout reveals any stuck row.
+        var workRows = gsap.utils.toArray('.work-row');
+        if (workRows.length) {
+          gsap.from(workRows, {
+            opacity: 0, y: 46, rotateX: -22, transformOrigin: '50% 0%',
+            duration: 0.8, ease: 'power3.out',
+            stagger: { each: 0.16, from: 'start', ease: 'power2.in' },
+            scrollTrigger: { trigger: '.work-list', start: 'top 80%', once: true },
+            onComplete: function () { gsap.set(workRows, { clearProps: 'transform,opacity' }); }
+          });
+          setTimeout(function () {
+            workRows.forEach(function (r) {
+              if (gsap.getProperty(r, 'opacity') < 1) gsap.set(r, { opacity: 1, y: 0, rotateX: 0 });
+            });
+          }, 4000);
         }
 
         // Selected Work rows: smooth GSAP-eased indent + arrow on hover.

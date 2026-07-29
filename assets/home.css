@@ -671,6 +671,25 @@ section {
   color: var(--navy);
 }
 
+.timeline-row__tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0.4rem 0 0.55rem;
+}
+
+.timeline-row__tools span {
+  padding: 0.16rem 0.55rem;
+  color: var(--navy-2);
+  background: var(--blue-soft);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-family: "Poppins", system-ui, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
 .timeline-row p:last-child {
   margin-bottom: 0;
   font-size: 0.98rem;
@@ -1101,7 +1120,19 @@ section {
 }
 
 
-/* GSAP owns the Selected Work row hover motion for smoother easing. */
+/* GSAP owns the Selected Work domino reveal + hover motion. Rows stay
+   visible by default (fallback) so nothing hides if the script doesn't run. */
+.gsap-active .work-list {
+  perspective: 1000px;
+}
+
+.gsap-active .reveal .work-row,
+.gsap-active .reveal.in-view .work-row {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
 .gsap-active .work-row {
   transition: background-color 220ms ease;
 }
