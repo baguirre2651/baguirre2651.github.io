@@ -487,22 +487,30 @@
         }
 
         // Selected Work: domino reveal — rows tip in one after another with an
-        // accelerating stagger, so the last few land together. Safe fallback:
-        // CSS keeps rows visible, and a timeout reveals any stuck row.
+        // accelerating stagger, so the last few land together. Uses onEnter so
+        // it always plays when the list scrolls in; a late failsafe guarantees
+        // the rows are never left hidden.
         var workRows = gsap.utils.toArray('.work-row');
         if (workRows.length) {
-          gsap.from(workRows, {
-            opacity: 0, y: 46, rotateX: -22, transformOrigin: '50% 0%',
-            duration: 0.8, ease: 'power3.out',
-            stagger: { each: 0.16, from: 'start', ease: 'power2.in' },
-            scrollTrigger: { trigger: '.work-list', start: 'top 80%', once: true },
-            onComplete: function () { gsap.set(workRows, { clearProps: 'transform,opacity' }); }
+          gsap.set(workRows, { opacity: 0, y: 52, rotateX: -34, transformOrigin: '50% 0%' });
+          ScrollTrigger.create({
+            trigger: '.work-list', start: 'top 82%', once: true,
+            onEnter: function () {
+              gsap.to(workRows, {
+                opacity: 1, y: 0, rotateX: 0,
+                duration: 0.85, ease: 'power3.out',
+                stagger: { each: 0.18, from: 'start', ease: 'power2.in' },
+                clearProps: 'transform'
+              });
+            }
           });
+          // Failsafe: if the section never triggered (e.g. very short page),
+          // reveal the rows after a while so nothing stays hidden.
           setTimeout(function () {
-            workRows.forEach(function (r) {
-              if (gsap.getProperty(r, 'opacity') < 1) gsap.set(r, { opacity: 1, y: 0, rotateX: 0 });
-            });
-          }, 4000);
+            if (gsap.getProperty(workRows[0], 'opacity') < 1) {
+              gsap.to(workRows, { opacity: 1, y: 0, rotateX: 0, duration: 0.5, stagger: 0.1, clearProps: 'transform' });
+            }
+          }, 6000);
         }
 
         // Selected Work rows: smooth GSAP-eased indent + arrow on hover.
