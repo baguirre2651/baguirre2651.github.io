@@ -183,8 +183,10 @@
             object-fit: contain;
             object-position: center bottom;
             image-rendering: pixelated;
-            filter: drop-shadow(0 14px 18px rgba(0, 0, 0, 0.38));
             cursor: pointer;
+            /* Feather the ragged bottom cut-off so it fades into the sky. */
+            -webkit-mask-image: linear-gradient(to top, transparent 0, #000 15%);
+            mask-image: linear-gradient(to top, transparent 0, #000 15%);
         }
 
         .speech-bubble {
