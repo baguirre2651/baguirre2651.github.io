@@ -1127,6 +1127,38 @@ section {
   overflow: hidden;
 }
 
+/* Waving character peeking in from the left edge (hello-monday style). */
+.waver {
+  position: absolute;
+  left: 0;
+  bottom: -6%;
+  z-index: 0;
+  width: auto;
+  height: clamp(190px, 28vh, 270px);
+  transform-origin: 30% 100%;
+  transform: translateX(-42%) rotate(-3deg);
+  animation: waver-sway 4.4s ease-in-out infinite;
+  pointer-events: none;
+  user-select: none;
+}
+
+@keyframes waver-sway {
+  0%, 100% { transform: translateX(-42%) rotate(-3deg); }
+  50% { transform: translateX(-37%) rotate(3deg); }
+}
+
+@media (max-width: 1080px) {
+  .waver {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .waver {
+    animation: none;
+  }
+}
+
 /* Light-sweep shine across the solid buttons. */
 .button--dark,
 .button--light,
