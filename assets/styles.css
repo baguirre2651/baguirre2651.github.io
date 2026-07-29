@@ -97,7 +97,7 @@ body {
       height: 50%;
       position: absolute;
       top: 0;
-      animation: color-bounce 32s infinite alternate; /* 64 seconds total duration */
+      animation: color-bounce 40s linear infinite alternate;
       pointer-events: none;
     }
     
@@ -115,11 +115,11 @@ body {
   80% {
     background-color: #ffb477; /* Orange-like transition */
   }
-  90% {
-    background-color: black; /* Final transition to black */
+  83% {
+    background-color: black;
   }
   100% {
-    background-color: #005ADC; /* Back to initial blue */
+    background-color: black; /* Hold at full night through the turnaround */
   }
 }
     
@@ -222,6 +222,36 @@ body {
   }
   
   /* house */ 
+  .night-city {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 50vh;
+    max-width: none;
+    object-fit: fill;
+    object-position: center;
+    opacity: 0;
+    image-rendering: pixelated;
+    pointer-events: none;
+    animation: reveal-night-city 40s linear infinite alternate;
+  }
+
+  @keyframes reveal-night-city {
+    0%,
+    81.5% {
+      opacity: 0;
+    }
+    83% {
+      opacity: 0.18;
+    }
+    86%,
+    100% {
+      opacity: 0.92;
+    }
+  }
+
   .house {
     position: fixed;
     z-index: 99999999;
@@ -327,10 +357,10 @@ body {
    .moon {
     position: absolute;
     z-index: 9999;
-    top: 15%;
+    top: 11%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 120px; 
+    width: clamp(76px, 8vw, 120px);
     height: auto;
   }
 
@@ -543,6 +573,16 @@ body {
     width: clamp(52px, 13vw, 72px);
   }
 
+  .night-city {
+    width: 100vw;
+    height: 50svh;
+  }
+
+  .moon {
+    top: 10%;
+    width: clamp(68px, 21vw, 92px);
+  }
+
   .house:hover {
     transform: translate(-10px, 110px) scale(5.2);
   }
@@ -609,6 +649,11 @@ body {
 }
 
 @media (min-width: 1500px) {
+  .moon {
+    top: 10%;
+    width: clamp(120px, 7vw, 140px);
+  }
+
   #walk {
     width: 25%;
   }
@@ -623,5 +668,16 @@ body {
 
   #flowers-image2 {
     height: 52%;
+  }
+}
+
+@media (max-height: 560px) and (orientation: landscape) {
+  .night-city {
+    height: 50svh;
+  }
+
+  .moon {
+    top: 13%;
+    width: clamp(58px, 8vw, 76px);
   }
 }
