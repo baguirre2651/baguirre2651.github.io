@@ -69,7 +69,7 @@
             --bridge-height: 51.5vh;
             --bridge-top: var(--bridge-height);
             --character-width: clamp(72px, 6vw, 112px);
-            --castle-height: clamp(330px, 51vh, 540px);
+            --castle-height: clamp(310px, 46vh, 500px);
         }
 
         html,
@@ -118,6 +118,10 @@
             background-size: cover;
             background-position: center top;
             z-index: 10;
+            /* Feather the top edge so it blends into the night sky instead of
+               showing a hard seam. */
+            -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 11%);
+            mask-image: linear-gradient(to bottom, transparent 0, #000 11%);
         }
 
         #corner-image {
@@ -165,7 +169,7 @@
 
         #castle-link {
             position: fixed;
-            right: clamp(70px, 10vw, 150px);
+            right: clamp(42px, 6vw, 105px);
             bottom: var(--bridge-top);
             height: var(--castle-height);
             transform: translateY(3.2vh);
@@ -176,6 +180,10 @@
             display: block;
             height: 100%;
             width: auto;
+            object-fit: contain;
+            object-position: center bottom;
+            image-rendering: pixelated;
+            filter: drop-shadow(0 14px 18px rgba(0, 0, 0, 0.38));
             cursor: pointer;
         }
 
@@ -265,7 +273,7 @@
             :root {
                 --bridge-height: 52svh;
                 --character-width: clamp(86px, 17vw, 118px);
-                --castle-height: clamp(300px, 49svh, 440px);
+                --castle-height: clamp(280px, 44svh, 400px);
             }
 
             html,
@@ -377,7 +385,7 @@
     <img id="mystar-image" src="assets/images/star2.png" alt="">
 
     <a id="castle-link" href="castle.html" aria-label="Open castle page">
-        <img id="castle-image" src="assets/images/castle.png" alt="castle">
+        <img id="castle-image" src="assets/images/castle.gif" alt="Animated castle with lightning">
     </a>
     <div class="speech-bubble">**</div>
 
