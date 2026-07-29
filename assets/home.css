@@ -733,10 +733,15 @@ section {
   color: #061831;
 }
 
-/* With the hill present, drop the redundant back-to-top affordances. */
+/* With the hill present, drop the redundant back-to-top affordances and
+   give the footer clear space above the hill so nothing overlaps. */
 .gsap-active .scroll-top,
 .gsap-active .site-footer a {
   display: none;
+}
+
+.gsap-active .site-footer {
+  padding-bottom: 104px;
 }
 
 @media (prefers-reduced-motion: reduce) {
