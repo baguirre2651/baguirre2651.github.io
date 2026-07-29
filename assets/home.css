@@ -513,6 +513,15 @@ section {
   border-top: 1px solid var(--line);
 }
 
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: clamp(1.5rem, 4vw, 3.5rem);
+  row-gap: 0;
+  border-top: 0;
+  counter-reset: experience;
+}
+
 .work-row {
   display: grid;
   grid-template-columns: 44px minmax(0, 1fr) minmax(180px, 270px) 24px;
@@ -640,25 +649,89 @@ section {
 }
 
 .timeline-row {
+  position: relative;
+  display: block;
+  margin: 0;
+  padding: clamp(1.5rem, 3vw, 2.5rem) 0;
+  background: transparent;
+  border: 0;
+  border-top: 1px solid rgba(6, 24, 49, 0.34);
+  border-radius: 0;
+  box-shadow: none;
+  transition: border-color 220ms ease;
+}
+
+.timeline-row:nth-child(-n + 2) {
+  grid-column: 1 / -1;
   display: grid;
-  grid-template-columns: minmax(130px, 190px) minmax(0, 1fr);
-  gap: clamp(1rem, 4vw, 3rem);
-  padding: 1.1rem 0;
-  border-bottom: 1px solid var(--line);
+  grid-template-columns: minmax(140px, 190px) minmax(0, 1fr);
+  gap: clamp(1.5rem, 5vw, 4rem);
+  border-top-width: 2px;
+  border-top-color: var(--navy);
+}
+
+.timeline-row:hover {
+  border-color: var(--blue);
+}
+
+.timeline-row::before {
+  content: counter(experience, decimal-leading-zero);
+  position: absolute;
+  top: 1.35rem;
+  right: 0;
+  color: rgba(6, 24, 49, 0.08);
+  font-family: "Poppins", Arial, sans-serif;
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.timeline-row {
+  counter-increment: experience;
 }
 
 .timeline-row time {
+  align-self: start;
+  width: fit-content;
+  padding: 0;
   color: var(--blue);
-  font-family: "Poppins", system-ui, sans-serif;
-  font-size: 0.82rem;
-  font-weight: 800;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  font-family: "Poppins", Arial, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
+}
+
+.timeline-row h3 {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  padding-right: clamp(3rem, 7vw, 6rem);
+  margin-bottom: 0.35rem;
+  font-family: "Poppins", Arial, sans-serif;
+  font-size: clamp(1.5rem, 2.5vw, 2.35rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  transition: color 180ms ease;
+}
+
+.timeline-row:hover h3 {
+  color: var(--blue);
 }
 
 .timeline-row__company {
   margin-bottom: 0.4rem;
   color: var(--navy-2);
-  font-weight: 800;
+  font-family: "Nunito", Arial, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
 }
 
 .timeline-row p a {
@@ -674,20 +747,29 @@ section {
 .timeline-row__tools {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.35rem;
+  gap: 0.45rem;
   margin: 0.4rem 0 0.55rem;
 }
 
 .timeline-row__tools span {
-  padding: 0.16rem 0.55rem;
-  color: var(--navy-2);
-  background: var(--blue-soft);
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  font-family: "Poppins", system-ui, sans-serif;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
+  padding: 0.38rem 0.7rem;
+  color: var(--white);
+  background: var(--blue);
+  border: 1px solid var(--blue);
+  border-radius: 0;
+  font-family: "Poppins", Arial, sans-serif;
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  text-transform: uppercase;
+  transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease;
+}
+
+.timeline-row:hover .timeline-row__tools span {
+  color: var(--white);
+  background: var(--navy);
+  border-color: var(--navy);
 }
 
 /* Liquid "Back to top" hill that rises from the bottom edge on scroll. */
@@ -762,7 +844,7 @@ section {
 .timeline-video {
   display: block;
   width: 100%;
-  max-width: 620px;
+  max-width: 760px;
   aspect-ratio: 1440 / 713;
   background: #000;
   border: 1px solid var(--line);
@@ -772,7 +854,7 @@ section {
 
 .timeline-media figcaption {
   margin-top: 0.55rem;
-  max-width: 620px;
+  max-width: 760px;
   color: var(--muted);
   font-size: 0.82rem;
   opacity: 0.72;
@@ -1235,37 +1317,75 @@ section {
 
 /* Self-drawing spine for the experience timeline. */
 .gsap-active .timeline {
-  padding-left: 28px;
+  padding-left: 0;
 }
 
-.timeline-line {
-  position: absolute;
-  top: 22px;
-  bottom: 22px;
-  left: 8px;
-  width: 2px;
-  overflow: hidden;
-  background: rgba(21, 93, 252, 0.12);
-  border-radius: 2px;
+.gsap-active .reveal .timeline-row,
+.gsap-active .reveal.in-view .timeline-row {
+  transition: border-color 220ms ease;
 }
 
-.timeline-line__fill {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 0;
-  background: linear-gradient(180deg, #05d9ff, var(--blue) 55%, #2506ad);
-  border-radius: 2px;
+.experience {
+  background-color: #ffffff;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.78)),
+    url("images/oil-canvas-texture.jpg");
+  background-repeat: repeat;
+  background-size: 768px auto;
+}
+
+.experience .section-label {
+  margin-bottom: clamp(2rem, 5vw, 4rem);
+  color: var(--navy);
+  font-family: "Poppins", Arial, sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
+.experience-heading {
+  align-items: end;
+  margin-bottom: clamp(3rem, 8vw, 6rem);
+  padding-top: 1rem;
+  border-top: 1px solid var(--navy);
+}
+
+.experience-heading h2 {
+  max-width: 760px;
+  margin: 0;
+  font-family: "Poppins", Arial, sans-serif;
+  font-size: clamp(2.75rem, 6vw, 5.25rem);
+  font-weight: 700;
+  line-height: 0.94;
+  letter-spacing: -0.045em;
+}
+
+.experience-heading h2 em {
+  display: block;
+  color: var(--blue);
+  font-style: normal;
+  font-weight: 700;
+}
+
+.experience-heading p {
+  max-width: 340px;
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.55;
 }
 
 @media (max-width: 860px) {
-  .gsap-active .timeline {
-    padding-left: 22px;
+  .timeline {
+    grid-template-columns: 1fr;
   }
 
-  .timeline-line {
-    left: 6px;
+  .timeline-row,
+  .timeline-row:nth-child(-n + 2) {
+    grid-column: auto;
+    display: block;
+  }
+
+  .timeline-row {
+    padding: 1.25rem;
   }
 }
 

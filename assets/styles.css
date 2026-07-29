@@ -106,16 +106,16 @@ body {
   0% {
     background-color: #005ADC; /* Initial blue */
   }
-  60% {
-    background-color: #005ADC; /* Stay at initial blue longer */
+  35% {
+    background-color: #005ADC; /* Brief daytime hold before the sky begins changing */
   }
-  70% {
+  65% {
     background-color: #99afcf; /* Lighter blue transition */
   }
-  80% {
+  73% {
     background-color: #ffb477; /* Orange-like transition */
   }
-  83% {
+  77% {
     background-color: black;
   }
   100% {
@@ -240,13 +240,13 @@ body {
 
   @keyframes reveal-night-city {
     0%,
-    81.5% {
+    75.5% {
       opacity: 0;
     }
-    83% {
+    77% {
       opacity: 0.18;
     }
-    86%,
+    80%,
     100% {
       opacity: 0.92;
     }

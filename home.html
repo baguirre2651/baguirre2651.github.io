@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
-  <link rel="stylesheet" type="text/css" href="assets/home.css?v=21">
+  <link rel="stylesheet" type="text/css" href="assets/home.css?v=28">
 </head>
 <body>
   <header class="site-header">
@@ -94,8 +94,9 @@
 
     <section class="experience reveal" id="experience">
       <div class="section-label"><span>01</span>Experience</div>
-      <div class="section-heading">
+      <div class="section-heading experience-heading">
         <h2>Experience.</h2>
+        <p>A working history across product, data, and design—building useful systems from first idea through shipped experience.</p>
       </div>
 
       <div class="timeline">
@@ -443,7 +444,7 @@
         // Clear any inline transforms/opacity GSAP may have set on the hero
         // so the plain layout shows through intact.
         document.querySelectorAll(
-          '.hero__copy h1, .hero__lede, .hero__meta span, .hero-socials a, .hero-about-button, .hero__image, .word-inner'
+          '.hero__copy h1, .hero__lede, .hero__meta span, .hero-socials a, .hero-about-button, .hero__image, .word-inner, .timeline-row, .timeline-row__tools span, .timeline-media'
         ).forEach(function (el) {
           el.style.opacity = '';
           el.style.transform = '';
@@ -470,19 +471,60 @@
         // NOTE: no GSAP hero entrance and no background effects — the hero
         // renders fully and plainly via CSS. GSAP only adds interactive polish.
 
-        // Timeline: self-drawing spine. Decorative only — the rows themselves
-        // are revealed by the CSS/IntersectionObserver system above.
+        // Experience: alternating editorial reveals, staggered tool labels,
+        // and restrained depth on hover.
         var timeline = document.querySelector('.timeline');
         if (timeline) {
-          var line = document.createElement('div');
-          line.className = 'timeline-line';
-          var fill = document.createElement('div');
-          fill.className = 'timeline-line__fill';
-          line.appendChild(fill);
-          timeline.appendChild(line);
-          gsap.to(fill, {
-            height: '100%', ease: 'none',
-            scrollTrigger: { trigger: timeline, start: 'top 72%', end: 'bottom 58%', scrub: 0.4 }
+          var timelineRows = gsap.utils.toArray('.timeline-row');
+          timelineRows.forEach(function (row, index) {
+            var tools = row.querySelectorAll('.timeline-row__tools span');
+            var media = row.querySelector('.timeline-media');
+            var direction = index % 2 === 0 ? 34 : -34;
+
+            gsap.set(row, {
+              opacity: 0,
+              x: direction,
+              y: 18
+            });
+            gsap.set(tools, { opacity: 0, y: 8 });
+
+            var rowReveal = gsap.timeline({
+              scrollTrigger: {
+                trigger: row,
+                start: 'top 84%',
+                once: true
+              }
+            });
+            rowReveal
+              .to(row, {
+                opacity: 1,
+                x: 0,
+                y: 0,
+                duration: 0.85,
+                ease: 'power3.out',
+                clearProps: 'transform'
+              })
+              .to(tools, {
+                opacity: 1,
+                y: 0,
+                duration: 0.38,
+                stagger: 0.045,
+                ease: 'power2.out',
+                clearProps: 'transform'
+              }, '-=0.5');
+
+            if (media) {
+              gsap.fromTo(media, { y: 18 }, {
+                y: -10,
+                ease: 'none',
+                scrollTrigger: {
+                  trigger: media,
+                  start: 'top bottom',
+                  end: 'bottom top',
+                  scrub: 0.7
+                }
+              });
+            }
           });
         }
 
