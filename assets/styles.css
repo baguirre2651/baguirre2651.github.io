@@ -97,7 +97,7 @@ body {
       height: 50%;
       position: absolute;
       top: 0;
-      animation: color-bounce 40s linear infinite alternate;
+      animation: color-bounce 12s linear infinite alternate;
       pointer-events: none;
     }
     
@@ -106,16 +106,16 @@ body {
   0% {
     background-color: #005ADC; /* Initial blue */
   }
-  35% {
-    background-color: #005ADC; /* Brief daytime hold before the sky begins changing */
+  16.67% {
+    background-color: #005ADC; /* Hold solid blue for 2 seconds */
   }
-  65% {
-    background-color: #99afcf; /* Lighter blue transition */
+  29.17% {
+    background-color: #99afcf; /* Reach lighter blue at 3.5 seconds */
   }
-  73% {
-    background-color: #ffb477; /* Orange-like transition */
+  41.67% {
+    background-color: #ffb477; /* Reach sunset at 5 seconds */
   }
-  77% {
+  50% {
     background-color: black;
   }
   100% {
@@ -235,18 +235,18 @@ body {
     opacity: 0;
     image-rendering: pixelated;
     pointer-events: none;
-    animation: reveal-night-city 40s linear infinite alternate;
+    animation: reveal-night-city 12s linear infinite alternate;
   }
 
   @keyframes reveal-night-city {
     0%,
-    75.5% {
+    41.67% {
       opacity: 0;
     }
-    77% {
+    47% {
       opacity: 0.18;
     }
-    80%,
+    52%,
     100% {
       opacity: 0.92;
     }
