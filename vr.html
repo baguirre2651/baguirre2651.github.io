@@ -182,11 +182,11 @@
             width: auto;
             object-fit: contain;
             object-position: center bottom;
-            image-rendering: pixelated;
+            image-rendering: auto;
             cursor: pointer;
-            /* Feather the ragged bottom cut-off so it fades into the sky. */
-            -webkit-mask-image: linear-gradient(to top, transparent 0, #000 15%);
-            mask-image: linear-gradient(to top, transparent 0, #000 15%);
+            /* Feather the base so it settles into the scene. */
+            -webkit-mask-image: linear-gradient(to top, transparent 0, #000 8%);
+            mask-image: linear-gradient(to top, transparent 0, #000 8%);
         }
 
         .speech-bubble {
@@ -387,7 +387,7 @@
     <img id="mystar-image" src="assets/images/star2.png" alt="">
 
     <a id="castle-link" href="castle.html" aria-label="Open castle page">
-        <img id="castle-image" src="assets/images/castle.gif" alt="Animated castle with lightning">
+        <img id="castle-image" src="assets/images/castle.png" alt="Castle on a hill">
     </a>
     <div class="speech-bubble">**</div>
 
