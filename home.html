@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
-  <link rel="stylesheet" type="text/css" href="assets/home.css?v=18">
+  <link rel="stylesheet" type="text/css" href="assets/home.css?v=19">
 </head>
 <body>
   <header class="site-header">
@@ -580,7 +580,7 @@
         // Liquid "Back to top" hill — a black blob that rises and morphs from
         // the bottom edge as you scroll toward the end (hello-monday style).
         (function () {
-          var W = 1200, H = 200;
+          var W = 1200, H = 120;
           var wrap = document.createElement('div');
           wrap.className = 'btt';
           wrap.setAttribute('aria-hidden', 'true');
@@ -600,21 +600,22 @@
               ' L' + W + ',' + H + ' Z';
           }
 
-          var target = 0, cur = 0;
+          var target = 0, cur = 0, t0 = performance.now();
           ScrollTrigger.create({
             start: 0, end: 'max', invalidateOnRefresh: true,
             onUpdate: function (self) {
-              var t = (self.progress - 0.78) / 0.22; // ramp over the last ~22%
+              var t = (self.progress - 0.88) / 0.12; // appear only in the last ~12%
               t = t < 0 ? 0 : t > 1 ? 1 : t;
               target = t * t * (3 - 2 * t); // smoothstep
             }
           });
           gsap.ticker.add(function () {
-            cur += (target - cur) * 0.12; // buttery lerp toward the scroll target
+            cur += (target - cur) * 0.08; // gentler lerp = smoother rise
             if (Math.abs(target - cur) < 0.0005) cur = target;
-            path.setAttribute('d', shape(cur * (H - 12)));
+            var bob = Math.sin((performance.now() - t0) / 720) * 7 * cur; // gentle up/down
+            path.setAttribute('d', shape(cur * (H - 14) + bob));
             label.style.opacity = cur < 0.15 ? 0 : (cur - 0.15) / 0.85;
-            label.style.transform = 'translate(-50%, ' + ((1 - cur) * 24) + 'px)';
+            label.style.transform = 'translate(-50%, ' + ((1 - cur) * 20 - bob) + 'px)';
             label.style.pointerEvents = cur > 0.55 ? 'auto' : 'none';
           });
         }());
