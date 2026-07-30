@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
-  <link rel="stylesheet" type="text/css" href="assets/home.css?v=29">
+  <link rel="stylesheet" type="text/css" href="assets/home.css?v=30">
 </head>
 <body>
   <header class="site-header">
@@ -21,7 +21,7 @@
 
     <nav class="site-nav" id="site-nav" aria-label="Main navigation">
       <a href="index.html">Home</a>
-      <a href="#about">About</a>
+      <a href="#home">About</a>
       <a href="#experience">Experience</a>
       <a href="#work">Work</a>
       <a href="#film">Vlogs</a>
@@ -588,32 +588,39 @@
           }
         }
 
-        // Experience tech chips: one quick cool-toned bounce on hover, then rest.
+        // Experience tech chips: a subtle quick cool-toned flash on hover that
+        // settles back to the default navy chip (navy bg, white text).
         (function () {
-          var coolColors = ['#155dfc', '#2506ad', '#1e3a8a', '#0e7490', '#3b2f7a', '#0b3b6f'];
+          var coolColors = ['#155dfc', '#2506ad', '#0e7490', '#3b2f7a', '#0b3b6f'];
           function pick() { return coolColors[Math.floor(Math.random() * coolColors.length)]; }
           document.querySelectorAll('.timeline-row').forEach(function (row) {
             var chips = row.querySelectorAll('.timeline-row__tools span');
             if (!chips.length) return;
             var anim;
+            function settle() {
+              gsap.to(chips, {
+                backgroundColor: '#1e3a8a', borderColor: '#1e3a8a', color: '#ffffff',
+                y: 0, duration: 0.3, ease: 'power2.out',
+                clearProps: 'backgroundColor,borderColor,color,transform'
+              });
+            }
             row.addEventListener('mouseenter', function () {
               if (anim) anim.kill();
               anim = gsap.to(chips, {
                 backgroundColor: pick,
                 borderColor: pick,
-                color: '#ffffff',
-                keyframes: { y: [0, -5, 0] },
-                duration: 0.38,
+                keyframes: { y: [0, -3, 0] },
+                duration: 0.32,
                 ease: 'power2.out',
-                stagger: { each: 0.045, from: 'start' }
+                stagger: { each: 0.04, from: 'start' },
+                yoyo: true,
+                repeat: 1,               // flash to a cool color, then back
+                onComplete: settle       // guarantee return to the navy default
               });
             });
             row.addEventListener('mouseleave', function () {
               if (anim) anim.kill();
-              gsap.to(chips, {
-                y: 0, duration: 0.3, ease: 'power2.out',
-                clearProps: 'backgroundColor,borderColor,color,transform'
-              });
+              settle();
             });
           });
         }());

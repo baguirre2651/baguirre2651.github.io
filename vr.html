@@ -200,7 +200,7 @@
             pointer-events: none;
             opacity: 0;
             filter: drop-shadow(0 0 7px #9db4ff) drop-shadow(0 0 18px #6a5cff);
-            animation: lightning-flash 5.5s ease-out infinite;
+            animation: lightning-flash 3.6s ease-out infinite;
         }
 
         .lightning path {
@@ -212,11 +212,16 @@
         }
 
         @keyframes lightning-flash {
-            0%, 88%, 100% { opacity: 0; }
-            89% { opacity: 1; }
-            90.5% { opacity: 0.12; }
-            92% { opacity: 0.9; }
-            94% { opacity: 0; }
+            0%, 34%, 100% { opacity: 0; }
+            35% { opacity: 1; }
+            36.5% { opacity: 0.12; }
+            38% { opacity: 0.85; }
+            40% { opacity: 0; }
+            85% { opacity: 0; }
+            86% { opacity: 1; }
+            87.5% { opacity: 0.14; }
+            89% { opacity: 0.9; }
+            91% { opacity: 0; }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -399,7 +404,7 @@
 <body>
     <nav id="q1-navbar" aria-label="Main navigation">
         <a href="index.html" class="q1-navitem">Home</a>
-        <a href="home.html#about" class="q1-navitem">About</a>
+        <a href="home.html#home" class="q1-navitem">About</a>
         <a href="home.html#work" class="q1-navitem">Work</a>
         <a href="home.html#contact" class="q1-navitem">Contact</a>
     </nav>

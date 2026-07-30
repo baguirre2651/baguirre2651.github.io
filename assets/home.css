@@ -749,9 +749,9 @@ section {
 
 .timeline-row__tools span {
   padding: 0.38rem 0.7rem;
-  color: var(--navy-2);
-  background: var(--surface);
-  border: 1px solid var(--line);
+  color: #ffffff;
+  background: #1e3a8a;
+  border: 1px solid #1e3a8a;
   border-radius: 0;
   font-family: "Poppins", Arial, sans-serif;
   font-size: 0.64rem;
