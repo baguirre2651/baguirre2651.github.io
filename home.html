@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
-  <link rel="stylesheet" type="text/css" href="assets/home.css?v=28">
+  <link rel="stylesheet" type="text/css" href="assets/home.css?v=29">
 </head>
 <body>
   <header class="site-header">
@@ -116,7 +116,7 @@
         <article class="timeline-row">
           <time>2026 — Present</time>
           <div>
-            <h3>Product Designer</h3>
+            <h3>Product and User Experience Designer</h3>
             <div class="timeline-row__tools">
               <span>Figma</span><span>SwiftUI</span><span>Firebase</span><span>TestFlight</span><span>Framer</span>
             </div>
@@ -587,6 +587,36 @@
             });
           }
         }
+
+        // Experience tech chips: one quick cool-toned bounce on hover, then rest.
+        (function () {
+          var coolColors = ['#155dfc', '#2506ad', '#1e3a8a', '#0e7490', '#3b2f7a', '#0b3b6f'];
+          function pick() { return coolColors[Math.floor(Math.random() * coolColors.length)]; }
+          document.querySelectorAll('.timeline-row').forEach(function (row) {
+            var chips = row.querySelectorAll('.timeline-row__tools span');
+            if (!chips.length) return;
+            var anim;
+            row.addEventListener('mouseenter', function () {
+              if (anim) anim.kill();
+              anim = gsap.to(chips, {
+                backgroundColor: pick,
+                borderColor: pick,
+                color: '#ffffff',
+                keyframes: { y: [0, -5, 0] },
+                duration: 0.38,
+                ease: 'power2.out',
+                stagger: { each: 0.045, from: 'start' }
+              });
+            });
+            row.addEventListener('mouseleave', function () {
+              if (anim) anim.kill();
+              gsap.to(chips, {
+                y: 0, duration: 0.3, ease: 'power2.out',
+                clearProps: 'backgroundColor,borderColor,color,transform'
+              });
+            });
+          });
+        }());
 
         // Button motion (fine pointers only).
         if (fine) {

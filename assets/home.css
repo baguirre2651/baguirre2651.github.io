@@ -712,24 +712,20 @@ section {
   max-width: 760px;
   padding-right: clamp(3rem, 7vw, 6rem);
   margin-bottom: 0.35rem;
+  color: var(--blue);
   font-family: "Poppins", Arial, sans-serif;
   font-size: clamp(1.5rem, 2.5vw, 2.35rem);
   font-weight: 700;
   line-height: 1.08;
   letter-spacing: -0.03em;
-  transition: color 180ms ease;
-}
-
-.timeline-row:hover h3 {
-  color: var(--blue);
 }
 
 .timeline-row__company {
   margin-bottom: 0.4rem;
-  color: var(--navy-2);
+  color: var(--navy);
   font-family: "Nunito", Arial, sans-serif;
-  font-size: 0.72rem;
-  font-weight: 500;
+  font-size: 0.78rem;
+  font-weight: 800;
   letter-spacing: 0.025em;
   text-transform: uppercase;
 }
@@ -753,9 +749,9 @@ section {
 
 .timeline-row__tools span {
   padding: 0.38rem 0.7rem;
-  color: var(--white);
-  background: var(--blue);
-  border: 1px solid var(--blue);
+  color: var(--navy-2);
+  background: var(--surface);
+  border: 1px solid var(--line);
   border-radius: 0;
   font-family: "Poppins", Arial, sans-serif;
   font-size: 0.64rem;
@@ -763,13 +759,7 @@ section {
   letter-spacing: 0.12em;
   line-height: 1;
   text-transform: uppercase;
-  transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease;
-}
-
-.timeline-row:hover .timeline-row__tools span {
-  color: var(--white);
-  background: var(--navy);
-  border-color: var(--navy);
+  will-change: transform, background-color;
 }
 
 /* Liquid "Back to top" hill that rises from the bottom edge on scroll. */
