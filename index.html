@@ -51,10 +51,10 @@
 
 
 <script>
-    // Handle click to play or pause flute song
+    // Handle click to play or pause Lady Love song
     window.addEventListener('click', () => {
-        const audioElement = document.getElementById("song");
-        
+        const audioElement = document.getElementById("lady_love_song");
+
         if (audioElement.paused) {
             audioElement.play();
         } else {
@@ -86,14 +86,14 @@
         }
     });
 
-    // Handle 'L' keypress to play or pause Lady Love song
+    // Handle 'L' keypress to play or pause flute song
     window.addEventListener('keydown', (event) => {
         if (event.key === 'l' || event.key === 'L') {
-            const ladyLoveAudio = document.getElementById("lady_love_song");
-            if (ladyLoveAudio.paused) {
-                ladyLoveAudio.play();
+            const fluteAudio = document.getElementById("song");
+            if (fluteAudio.paused) {
+                fluteAudio.play();
             } else {
-                ladyLoveAudio.pause();
+                fluteAudio.pause();
             }
         }
     });
