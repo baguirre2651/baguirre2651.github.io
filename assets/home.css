@@ -451,7 +451,7 @@ section {
 
 /* Gooey jelly wobble — only while hovering the photo. */
 .about-image:hover .intro__photo {
-  animation: about-goo 1.5s ease-in-out infinite;
+  animation: about-goo 3.2s ease-in-out infinite;
   box-shadow: 0 26px 60px rgba(6, 24, 49, 0.18);
 }
 
