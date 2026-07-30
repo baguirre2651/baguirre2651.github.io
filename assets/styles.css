@@ -82,13 +82,15 @@ body {
 
     #sun {
       position: absolute;
-      bottom: 10%;
+      top: 18%;
       left: 50%;
       transform: translateX(-50%);
-      width: 100px;
+      z-index: 2;
+      width: clamp(360px, 48vw, 600px);
       height: auto;
-      opacity: 0; /* Initially hidden */
-      transition: opacity 1s ease-in-out;
+      opacity: 0;
+      image-rendering: pixelated;
+      animation: reveal-sunset-sun 19.3s linear infinite alternate;
     }
     
     .container {
@@ -97,7 +99,7 @@ body {
       height: 50%;
       position: absolute;
       top: 0;
-      animation: color-bounce 12s linear infinite alternate;
+      animation: color-bounce 19.3s linear infinite alternate;
       pointer-events: none;
     }
     
@@ -106,16 +108,16 @@ body {
   0% {
     background-color: #005ADC; /* Initial blue */
   }
-  16.67% {
-    background-color: #005ADC; /* Hold solid blue for 2 seconds */
+  14.08% {
+    background-color: #005ADC; /* Preserve the existing opening blue hold */
   }
-  29.17% {
-    background-color: #99afcf; /* Reach lighter blue at 3.5 seconds */
+  24.61% {
+    background-color: #99afcf;
   }
-  41.67% {
-    background-color: #ffb477; /* Reach sunset at 5 seconds */
+  35.18% {
+    background-color: #ffb477;
   }
-  50% {
+  66.27% {
     background-color: black;
   }
   100% {
@@ -235,20 +237,35 @@ body {
     opacity: 0;
     image-rendering: pixelated;
     pointer-events: none;
-    animation: reveal-night-city 12s linear infinite alternate;
+    animation: reveal-night-city 19.3s linear infinite alternate;
   }
 
   @keyframes reveal-night-city {
     0%,
-    41.67% {
+    60% {
       opacity: 0;
     }
-    47% {
+    66.27% {
       opacity: 0.18;
     }
-    52%,
+    70%,
     100% {
       opacity: 0.92;
+    }
+  }
+
+  @keyframes reveal-sunset-sun {
+    0%,
+    24.61% {
+      opacity: 0;
+    }
+    30%,
+    61% {
+      opacity: 1;
+    }
+    66.27%,
+    100% {
+      opacity: 0;
     }
   }
 
@@ -362,8 +379,19 @@ body {
     transform: translate(-50%, -50%);
     width: clamp(76px, 8vw, 120px);
     height: auto;
+    animation: reveal-moon-at-night 19.3s linear infinite alternate;
   }
 
+  @keyframes reveal-moon-at-night {
+    0%,
+    66.27% {
+      opacity: 0;
+    }
+    70%,
+    100% {
+      opacity: 1;
+    }
+  }
 
   
 #flowers-image {
@@ -576,6 +604,11 @@ body {
   .night-city {
     width: 100vw;
     height: 50svh;
+  }
+
+  #sun {
+    top: 17%;
+    width: min(94vw, 600px);
   }
 
   .moon {
