@@ -718,11 +718,6 @@ section {
   font-weight: 700;
   line-height: 1.08;
   letter-spacing: -0.03em;
-  transition: color 180ms ease;
-}
-
-.timeline-row:hover h3 {
-  color: var(--blue);
 }
 
 .timeline-row__company {
