@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
-  <link rel="stylesheet" type="text/css" href="assets/home.css?v=36">
+  <link rel="stylesheet" type="text/css" href="assets/home.css?v=37">
 </head>
 <body>
   <header class="site-header">
@@ -589,30 +589,38 @@
         }
 
         // Experience row hover: title turns blue (JS-driven so it reliably
-        // reverts), and the tech chips just bounce — no colour change.
+        // reverts); chips bounce and flash white/black, then settle to navy.
         (function () {
           document.querySelectorAll('.timeline-row').forEach(function (row) {
             var chips = row.querySelectorAll('.timeline-row__tools span');
             var title = row.querySelector('h3');
             var anim;
+            function settle() {
+              if (!chips.length) return;
+              if (anim) { anim.kill(); anim = null; }
+              gsap.to(chips, {
+                backgroundColor: '#1e3a8a', borderColor: '#1e3a8a', color: '#ffffff', y: 0,
+                duration: 0.3, ease: 'power2.out',
+                clearProps: 'backgroundColor,borderColor,color,transform'
+              });
+            }
             row.addEventListener('mouseenter', function () {
               if (title) gsap.to(title, { color: '#155dfc', duration: 0.2, ease: 'power2.out' });
               if (chips.length) {
                 if (anim) anim.kill();
                 anim = gsap.to(chips, {
+                  backgroundColor: '#ffffff', borderColor: '#ffffff', color: '#111111',
                   keyframes: { y: [0, -3, 0] },
-                  duration: 0.34,
-                  ease: 'power2.out',
-                  stagger: { each: 0.04, from: 'start' }
+                  duration: 0.34, ease: 'power2.out',
+                  stagger: { each: 0.04, from: 'start' },
+                  yoyo: true, repeat: 1,   // flash white/black, then back to navy
+                  onComplete: settle
                 });
               }
             });
             row.addEventListener('mouseleave', function () {
               if (title) gsap.to(title, { color: '#061831', duration: 0.28, ease: 'power2.out', clearProps: 'color' });
-              if (chips.length) {
-                if (anim) anim.kill();
-                gsap.to(chips, { y: 0, duration: 0.25, ease: 'power2.out', clearProps: 'transform' });
-              }
+              settle();
             });
           });
         }());
