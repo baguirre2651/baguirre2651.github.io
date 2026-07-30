@@ -44,6 +44,11 @@
   <source src="assets/music/QKThr.mp3" type="audio/mp3">
 </audio>
 
+<!-- Lady Love Song Audio Element -->
+<audio id="lady_love_song" preload="none">
+  <source src="assets/music/LadyLove.mp3" type="audio/mp3">
+</audio>
+
 
 <script>
     // Handle click to play or pause flute song
@@ -77,6 +82,18 @@
                 aphexAudio.play();
             } else {
                 aphexAudio.pause();
+            }
+        }
+    });
+
+    // Handle 'L' keypress to play or pause Lady Love song
+    window.addEventListener('keydown', (event) => {
+        if (event.key === 'l' || event.key === 'L') {
+            const ladyLoveAudio = document.getElementById("lady_love_song");
+            if (ladyLoveAudio.paused) {
+                ladyLoveAudio.play();
+            } else {
+                ladyLoveAudio.pause();
             }
         }
     });
