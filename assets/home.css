@@ -712,12 +712,17 @@ section {
   max-width: 760px;
   padding-right: clamp(3rem, 7vw, 6rem);
   margin-bottom: 0.35rem;
-  color: var(--blue);
+  color: var(--navy);
   font-family: "Poppins", Arial, sans-serif;
   font-size: clamp(1.5rem, 2.5vw, 2.35rem);
   font-weight: 700;
   line-height: 1.08;
   letter-spacing: -0.03em;
+  transition: color 180ms ease;
+}
+
+.timeline-row:hover h3 {
+  color: var(--blue);
 }
 
 .timeline-row__company {
@@ -1197,6 +1202,30 @@ section {
 .hero {
   position: relative;
   overflow: hidden;
+}
+
+/* Full-bleed animated doodle background behind the hero. */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: url("images/doodle.gif") center center / cover no-repeat;
+}
+
+/* Soft scrim so the headline/photo stay readable over the doodle. */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.42) 60%, rgba(255, 255, 255, 0.3));
+}
+
+.hero__copy,
+.hero__media {
+  position: relative;
+  z-index: 2;
 }
 
 /* Light-sweep shine across the solid buttons. */
