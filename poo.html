@@ -84,6 +84,15 @@
             color: rgba(32, 40, 59, 0.979);
         }
 
+        /* Full-page crayon drawing behind the videos. */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background: url("assets/images/crayon.gif") center center / cover no-repeat;
+        }
+
         h2 {
             text-align: center;
             margin: 56px 0 12px;
