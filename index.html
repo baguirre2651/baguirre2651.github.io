@@ -27,13 +27,12 @@
       z-index: 2147483647;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 9px 14px;
-      font-family: "IBM Plex Sans", Arial, sans-serif;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      font-size: 18px;
+      line-height: 1;
       color: #fff;
       background-color: rgba(25, 25, 112, 0.78);
       border: 1px solid rgba(255, 255, 255, 0.35);
@@ -51,7 +50,7 @@
     }
 
     #sound-button #sound-icon {
-      font-size: 14px;
+      font-size: 18px;
       line-height: 1;
     }
 
@@ -81,9 +80,8 @@
     <h2>Website</h2>
   </header>
 
-  <button id="sound-button" type="button" aria-label="Play Lady Love" aria-pressed="false">
-    <span id="sound-icon" aria-hidden="true">♪</span>
-    <span id="sound-label">Lady Love</span>
+  <button id="sound-button" type="button" aria-label="Play music" aria-pressed="false">
+    <span id="sound-icon" aria-hidden="true">🔇</span>
   </button>
   <div class="center-text">
     <p id="hover-text">Hover</p>
@@ -117,11 +115,13 @@
         const ladyLove = document.getElementById("lady_love_song");
         if (!soundButton || !ladyLove) return;
 
+        const soundIcon = document.getElementById("sound-icon");
         const syncButton = () => {
             const playing = !ladyLove.paused;
             soundButton.classList.toggle('is-playing', playing);
             soundButton.setAttribute('aria-pressed', String(playing));
-            soundButton.setAttribute('aria-label', playing ? 'Pause Lady Love' : 'Play Lady Love');
+            soundButton.setAttribute('aria-label', playing ? 'Mute music' : 'Play music');
+            if (soundIcon) soundIcon.textContent = playing ? '🔊' : '🔇';
         };
 
         soundButton.addEventListener('click', (event) => {
