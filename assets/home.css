@@ -239,6 +239,51 @@ section {
 
 .hero__media {
   position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero__media::before,
+.hero__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: 12px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 900ms ease;
+}
+
+/* Moonlit cyanotype wash and soft edge vignette. */
+.hero__media::before {
+  background:
+    radial-gradient(ellipse at center, transparent 34%, rgba(3, 19, 47, 0.24) 70%, rgba(3, 10, 28, 0.78) 100%),
+    linear-gradient(145deg, rgba(113, 221, 239, 0.42), rgba(5, 44, 102, 0.76));
+  mix-blend-mode: color;
+}
+
+/* Fine warm speckles and translucent painterly grain. */
+.hero__media::after {
+  background:
+    radial-gradient(circle at 18% 24%, rgba(227, 190, 126, 0.55) 0 1px, transparent 1.6px),
+    radial-gradient(circle at 72% 18%, rgba(227, 190, 126, 0.4) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 62% 76%, rgba(227, 190, 126, 0.34) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 30% 82%, rgba(227, 190, 126, 0.38) 0 1px, transparent 1.6px),
+    linear-gradient(115deg, rgba(210, 232, 239, 0.12), transparent 42%, rgba(5, 22, 53, 0.22));
+  background-size: auto, auto, auto, auto, 160% 160%;
+  mix-blend-mode: screen;
+}
+
+.hero-gloss {
+  position: absolute;
+  inset: -20% auto -20% -42%;
+  z-index: 4;
+  width: 34%;
+  background: linear-gradient(105deg, transparent 8%, rgba(171, 246, 255, 0.08) 38%, rgba(255, 255, 255, 0.68) 50%, rgba(93, 222, 255, 0.12) 62%, transparent 92%);
+  transform: skewX(-18deg) translateX(-140%);
+  opacity: 0;
+  pointer-events: none;
 }
 
 .hero-actions {
@@ -317,11 +362,27 @@ section {
   animation: image-in 720ms ease 120ms both;
   transition:
     transform 260ms ease,
-    box-shadow 260ms ease;
+    box-shadow 260ms ease,
+    filter 900ms ease;
+}
+
+.hero__media:hover::before,
+.hero__media:hover::after {
+  opacity: 1;
+}
+
+.hero__media:hover .hero__image {
+  filter: grayscale(1) contrast(1.3) brightness(0.88);
+  transform: scale(1.025);
+}
+
+.gsap-active .hero__media {
+  transform-style: preserve-3d;
+  will-change: transform;
 }
 
 .hero__image:hover {
-  transform: translateY(-3px);
+  transform: translateY(-3px) scale(1.025);
   box-shadow: 0 22px 54px rgba(6, 24, 49, 0.14);
 }
 
@@ -1217,10 +1278,64 @@ section {
 /* Liquid glass + shine                                                 */
 /* ------------------------------------------------------------------ */
 
-/* Clean white hero — no background gradient. */
+/* Keep the opening section clean and white. */
 .hero {
   position: relative;
   overflow: hidden;
+}
+
+/* Slow, painterly field motion behind About Me. */
+.intro {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--white);
+}
+
+.intro::before {
+  content: "";
+  position: absolute;
+  inset: -9%;
+  z-index: 0;
+  background-image: url("images/hero-field.jpg");
+  background-position: center;
+  background-size: cover;
+  transform: translate3d(-2.5%, -1%, 0) scale(1.08) skewX(-0.45deg);
+  transform-origin: center;
+  animation: about-field-drift 22s ease-in-out infinite alternate;
+  opacity: 0.76;
+  will-change: transform, filter;
+}
+
+.intro::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.34) 46%, rgba(255, 255, 255, 0.48)),
+    rgba(255, 255, 255, 0.08);
+  pointer-events: none;
+}
+
+.intro > * {
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes about-field-drift {
+  0% {
+    transform: translate3d(-2.5%, -1%, 0) scale(1.08) skewX(-0.45deg);
+    filter: saturate(0.98) contrast(1.01);
+  }
+  50% {
+    transform: translate3d(1%, 0.8%, 0) scale(1.115) skewX(0.35deg);
+    filter: saturate(1.06) contrast(1.025);
+  }
+  100% {
+    transform: translate3d(2.8%, -0.4%, 0) scale(1.09) skewX(-0.2deg);
+    filter: saturate(1.01) contrast(1.015);
+  }
 }
 
 .hero__copy,
@@ -1486,6 +1601,16 @@ section {
 
   .hero {
     min-height: auto;
+  }
+
+  .intro::before {
+    inset: -6%;
+    background-position: 54% center;
+    opacity: 0.62;
+  }
+
+  .intro::after {
+    background: rgba(255, 255, 255, 0.42);
   }
 
   .hero__media {

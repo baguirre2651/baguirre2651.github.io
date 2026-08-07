@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
-  <link rel="stylesheet" type="text/css" href="assets/home.css?v=37">
+  <link rel="stylesheet" type="text/css" href="assets/home.css?v=44">
 </head>
 <body>
   <header class="site-header">
@@ -453,6 +453,30 @@
         document.documentElement.classList.add('gsap-active');
 
         var fine = window.matchMedia('(pointer: fine)').matches;
+
+        // Portrait: a single gloss sweep plus a very small pointer tilt.
+        var heroMedia = document.querySelector('.hero__media');
+        if (fine && heroMedia) {
+          var gloss = document.createElement('span');
+          gloss.className = 'hero-gloss';
+          heroMedia.appendChild(gloss);
+
+          heroMedia.addEventListener('mouseenter', function () {
+            gsap.fromTo(gloss,
+              { xPercent: -140, opacity: 0 },
+              { xPercent: 430, opacity: 1, duration: 1.05, ease: 'power2.inOut', onComplete: function () { gsap.set(gloss, { opacity: 0 }); } }
+            );
+          });
+          heroMedia.addEventListener('mousemove', function (event) {
+            var rect = heroMedia.getBoundingClientRect();
+            var mx = (event.clientX - rect.left) / rect.width - 0.5;
+            var my = (event.clientY - rect.top) / rect.height - 0.5;
+            gsap.to(heroMedia, { rotateY: mx * 3.2, rotateX: my * -3.2, duration: 0.55, ease: 'power3.out', transformPerspective: 900, overwrite: true });
+          });
+          heroMedia.addEventListener('mouseleave', function () {
+            gsap.to(heroMedia, { rotateY: 0, rotateX: 0, duration: 0.85, ease: 'elastic.out(1, 0.45)', overwrite: true });
+          });
+        }
 
         // Scroll-depth precision rail.
         var bar = document.createElement('div');
