@@ -1,6 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&display=swap");
 
 :root {
   --white: #ffffff;
@@ -10,9 +8,18 @@
   --blue: #155dfc;
   --blue-soft: #eef4ff;
   --text: #000000;
-  --muted: #000000;
+  --muted: #59616f;
   --line: #e2e8f0;
   --max: 1080px;
+
+  /* Type — one Swiss grotesque, one scale.
+     hero > section heading > card title > label. */
+  --font: "Geist", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --fs-hero: clamp(2.1rem, 3.6vw, 3.5rem);
+  --fs-section: clamp(1.85rem, 3.1vw, 2.9rem);
+  --fs-card: clamp(1.3rem, 2vw, 1.85rem);
+  --fs-sub: clamp(1.05rem, 1.5vw, 1.3rem);
+  --fs-label: 0.76rem;
   --pad: clamp(1.25rem, 4vw, 4rem);
 }
 
@@ -30,7 +37,7 @@ body {
   min-width: 320px;
   background: var(--white);
   color: var(--text);
-  font-family: "Nunito", system-ui, sans-serif;
+  font-family: var(--font);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -65,7 +72,7 @@ h3,
 .work-row__meta,
 .work-row__number,
 .site-footer {
-  font-family: "Poppins", system-ui, sans-serif;
+  font-family: var(--font);
 }
 
 h1,
@@ -102,7 +109,7 @@ h3 {
 }
 
 p {
-  color: var(--muted);
+  color: var(--text);
   font-size: 0.98rem;
   line-height: 1.58;
 }
@@ -335,7 +342,7 @@ section {
   background: #2506ad;
   border: 2px solid #1b047f;
   border-radius: 999px;
-  font-family: "Poppins", system-ui, sans-serif;
+  font-family: var(--font);
   font-size: 1rem;
   font-weight: 800;
   box-shadow: 0 10px 24px rgba(37, 6, 173, 0.2);
@@ -431,7 +438,7 @@ section {
 
 .section-title h2 {
   margin: 0;
-  font-family: "Geist", system-ui, sans-serif;
+  font-family: var(--font);
   font-size: clamp(2rem, 3.2vw, 3.2rem);
   font-weight: 700;
   letter-spacing: -0.02em;
@@ -467,7 +474,7 @@ section {
 .about-tag {
   margin-bottom: 1.3rem;
   color: var(--navy);
-  font-family: "Poppins", system-ui, sans-serif;
+  font-family: var(--font);
   font-size: 1.05rem;
   font-weight: 800;
 }
@@ -491,7 +498,7 @@ section {
 
 .about-details span {
   color: var(--blue);
-  font-family: "Poppins", system-ui, sans-serif;
+  font-family: var(--font);
   font-weight: 800;
 }
 
@@ -620,7 +627,7 @@ section {
 
 .work-row__title {
   color: var(--navy);
-  font-family: "Poppins", system-ui, sans-serif;
+  font-family: var(--font);
   font-size: clamp(1.12rem, 1.65vw, 1.45rem);
   font-weight: 800;
   line-height: 1.15;
@@ -740,8 +747,8 @@ section {
   position: absolute;
   top: 1.35rem;
   right: 0;
-  color: rgba(6, 24, 49, 0.08);
-  font-family: "Poppins", Arial, sans-serif;
+  color: rgba(6, 24, 49, 0.2);
+  font-family: var(--font);
   font-size: clamp(2.8rem, 5vw, 4.5rem);
   font-weight: 700;
   line-height: 1;
@@ -760,7 +767,7 @@ section {
   background: transparent;
   border: 0;
   border-radius: 0;
-  font-family: "Poppins", Arial, sans-serif;
+  font-family: var(--font);
   font-size: 0.68rem;
   font-weight: 500;
   letter-spacing: 0.06em;
@@ -774,7 +781,7 @@ section {
   padding-right: clamp(3rem, 7vw, 6rem);
   margin-bottom: 0.35rem;
   color: var(--navy);
-  font-family: "Poppins", Arial, sans-serif;
+  font-family: var(--font);
   font-size: clamp(1.5rem, 2.5vw, 2.35rem);
   font-weight: 700;
   line-height: 1.08;
@@ -784,7 +791,7 @@ section {
 .timeline-row__company {
   margin-bottom: 0.4rem;
   color: var(--navy);
-  font-family: "Nunito", Arial, sans-serif;
+  font-family: var(--font);
   font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: 0.025em;
@@ -814,7 +821,7 @@ section {
   background: #1e3a8a;
   border: 1px solid #1e3a8a;
   border-radius: 0;
-  font-family: "Poppins", Arial, sans-serif;
+  font-family: var(--font);
   font-size: 0.64rem;
   font-weight: 800;
   letter-spacing: 0.12em;
@@ -852,7 +859,7 @@ section {
   bottom: 20px;
   transform: translate(-50%, 20px);
   color: #fff;
-  font-family: "Poppins", system-ui, sans-serif;
+  font-family: var(--font);
   font-size: 0.95rem;
   font-weight: 800;
   letter-spacing: 0.02em;
@@ -963,7 +970,7 @@ section {
   align-items: center;
   gap: 0.35rem;
   color: var(--blue);
-  font-family: "Poppins", system-ui, sans-serif;
+  font-family: var(--font);
   font-size: 0.82rem;
   font-weight: 800;
   letter-spacing: 0.01em;
@@ -1070,7 +1077,7 @@ section {
   left: 1rem;
   bottom: 0.85rem;
   color: var(--white);
-  font-family: "Poppins", system-ui, sans-serif;
+  font-family: var(--font);
   font-size: 1.15rem;
   font-weight: 800;
 }
@@ -1081,7 +1088,7 @@ section {
   left: 1rem;
   bottom: 0.55rem;
   color: rgba(255, 255, 255, 0.72);
-  font-family: "Poppins", system-ui, sans-serif;
+  font-family: var(--font);
   font-size: 0.62rem;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -1110,7 +1117,7 @@ section {
 
 .film-rail__hint {
   color: var(--muted);
-  font-family: "Poppins", system-ui, sans-serif;
+  font-family: var(--font);
   font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.02em;
@@ -1145,7 +1152,7 @@ section {
   display: inline-block;
   margin-top: 0.3rem;
   color: var(--white);
-  font-family: "Poppins", system-ui, sans-serif;
+  font-family: var(--font);
   font-size: clamp(1.15rem, 2.8vw, 2rem);
   font-weight: 800;
   border-bottom: 2px solid var(--blue);
@@ -1472,7 +1479,7 @@ section {
 .experience .section-label {
   margin-bottom: clamp(2rem, 5vw, 4rem);
   color: var(--navy);
-  font-family: "Poppins", Arial, sans-serif;
+  font-family: var(--font);
   font-weight: 500;
   letter-spacing: 0.08em;
 }
@@ -1487,7 +1494,7 @@ section {
 .experience-heading h2 {
   max-width: 760px;
   margin: 0;
-  font-family: "Poppins", Arial, sans-serif;
+  font-family: var(--font);
   font-size: clamp(2.75rem, 6vw, 5.25rem);
   font-weight: 700;
   line-height: 0.94;
@@ -1696,4 +1703,312 @@ section {
   .site-footer {
     flex-direction: column;
   }
+}
+
+/* ------------------------------------------------------------------ */
+/* Section backgrounds — Experience + Selected Work                                 */
+/* Field image on ::before, white veil on ::after, children at          */
+/* z-index 2 — same pattern .intro and .films already use.              */
+/* ------------------------------------------------------------------ */
+
+.experience,
+.work {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background-image: none;
+}
+
+.experience::before {
+  content: "";
+  position: absolute;
+  inset: -9%;
+  z-index: 0;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+.experience::before {
+  background-image: url("images/hero-field.jpg");
+  transform: translate3d(-2.5%, -1%, 0) scale(1.08) skewX(-0.45deg);
+  transform-origin: center;
+  animation: about-field-drift 22s ease-in-out infinite alternate;
+  opacity: 0.34;
+  will-change: transform;
+}
+
+
+
+.experience::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.experience::after {
+  background: rgba(255, 255, 255, 0.42);
+}
+
+
+
+.experience > *,
+.work > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* ------------------------------------------------------------------ */
+/* Stack — solid navy panel, same --navy as the contact section        */
+/* at the foot of the page. No image; type flips to light.            */
+/* ------------------------------------------------------------------ */
+
+.capabilities {
+  background: var(--navy);
+  border-block-color: rgba(255, 255, 255, 0.1);
+}
+
+.capabilities .section-label {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.capabilities .section-label span {
+  color: #78a7ff;
+}
+
+.capabilities h2 {
+  color: var(--white);
+}
+
+.capabilities p {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.capabilities .stack-grid,
+.capabilities .stack-card {
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+.capabilities .stack-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.capabilities .stack-card h3 {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.capabilities .skill-cloud span {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.capabilities .skill-cloud span::after {
+  color: rgba(255, 255, 255, 0.32);
+}
+
+/* ------------------------------------------------------------------ */
+/* Selected Work + Education — white field, neutral grain               */
+/* Both panels share one set of rules so they cannot drift apart. The   */
+/* field is drawn in CSS rather than sampled from a photo: a small jpeg */
+/* stretched across a full-width panel arrived soft and banded. A       */
+/* tiling fractal-noise dither supplies the stipple, masked over a      */
+/* coloured layer so it reads as texture rather than a grey wash, and   */
+/* it stays crisp at any width because it is generated.                 */
+/* ------------------------------------------------------------------ */
+
+.work,
+.education {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background-color: var(--white);
+  border-block-color: var(--line);
+}
+
+.work::before,
+.education::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: linear-gradient(100deg, #fafbfc 0%, #ffffff 56%, #fcfdfe 100%);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+/* The grain: a grey bloom carved into speckles by the dither mask. */
+.work::after,
+.education::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-image:
+    radial-gradient(88% 92% at 6% 52%, #aeb6c2 0%, #c2c9d3 44%, #d8dde4 70%, rgba(216, 221, 228, 0) 88%),
+    linear-gradient(100deg, #ccd2db 0%, #dde1e8 48%, #e9ecf1 100%);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='d' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='1' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='discrete' tableValues='0 0 0.5 0.85 1 1'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23d)'/%3E%3C/svg%3E");
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='d' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='1' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='discrete' tableValues='0 0 0.5 0.85 1 1'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23d)'/%3E%3C/svg%3E");
+  mask-size: 200px 200px;
+  -webkit-mask-size: 200px 200px;
+  mask-repeat: repeat;
+  -webkit-mask-repeat: repeat;
+  opacity: 0.75;
+  pointer-events: none;
+}
+
+.education > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Liquid glass card — a translucent surface that blurs and saturates the
+   field behind it, a bright 1px rim, and a rim light on the inner
+   bottom/right edge. Type stays dark: the reference this came from ran
+   white on a dark backdrop, this one sits on peach. */
+.education-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(2px) saturate(180%);
+  -webkit-backdrop-filter: blur(2px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 2rem;
+  box-shadow:
+    0 8px 32px rgba(31, 38, 135, 0.14),
+    0 0 0 1px rgba(6, 24, 49, 0.05),
+    inset 0 4px 20px rgba(255, 255, 255, 0.5);
+  transition:
+    transform 200ms ease,
+    background-color 200ms ease,
+    box-shadow 200ms ease;
+}
+
+/* The inset highlight streaks that give the edge its wet, beveled look. */
+.education-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow:
+    inset -10px -8px 0 -11px rgba(255, 255, 255, 1),
+    inset 0 -9px 0 -8px rgba(255, 255, 255, 1);
+  opacity: 0.6;
+  filter: blur(1px) drop-shadow(10px 4px 6px rgba(28, 18, 6, 0.5)) brightness(115%);
+  pointer-events: none;
+}
+
+.education-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.education-card:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.26);
+  box-shadow:
+    0 14px 40px rgba(31, 38, 135, 0.26),
+    inset 0 4px 20px rgba(255, 255, 255, 0.42);
+}
+
+/* ------------------------------------------------------------------ */
+/* Typography — one family, one scale                                   */
+/* Before this, the same hierarchy level ranged from 1.85rem to         */
+/* 5.25rem across three families at two weights: Experience's heading   */
+/* was ~3x Stack's. Everything below collapses onto four steps.         */
+/* ------------------------------------------------------------------ */
+
+h1 {
+  font-size: var(--fs-hero);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.04;
+}
+
+/* Section headings — Experience., Selected work., Stack., About Me. */
+.experience-heading h2,
+.section-heading h2,
+.capabilities h2,
+.section-title h2 {
+  font-size: var(--fs-section);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.032em;
+}
+
+.experience-heading h2 em {
+  font-weight: 700;
+}
+
+/* Card and row titles. */
+.timeline-row h3,
+.work-row__title,
+.education-card h2,
+.about-copy h3,
+.film-slide__title {
+  font-size: var(--fs-card);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.022em;
+}
+
+/* Supporting subheads. */
+.about-tag,
+.contact-link {
+  font-size: var(--fs-sub);
+  font-weight: 600;
+  letter-spacing: -0.012em;
+}
+
+/* Every eyebrow label and meta line reads the same. */
+.section-label,
+.experience .section-label,
+.kicker,
+.stack-card h3,
+.work-row__number,
+.work-row__meta,
+.timeline-row__company,
+.text-link,
+.site-footer {
+  font-size: var(--fs-label);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.section-label,
+.experience .section-label,
+.work-row__number,
+.work-row__meta,
+.stack-card h3 {
+  color: var(--muted);
+}
+
+.section-label span,
+.experience .section-label span {
+  color: var(--blue);
+}
+
+/* Body copy — one size, one weight, one colour. */
+p,
+.hero__lede,
+.timeline-row p,
+.work-row p,
+.education-card p,
+.skill-cloud span {
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.timeline-row time {
+  font-size: var(--fs-label);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
